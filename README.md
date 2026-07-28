@@ -38,6 +38,7 @@ The report embeds:
 ## Publication status
 
 This repository is a first complete draft for Manhattan Borough President's
-Office review. Replace the provisional typographic office mark with an
-office-supplied official logo asset and complete the hotspot reconciliation
-noted in `DEVELOPER_NOTES.md` before final publication.
+Office review. The site now uses the official Manhattan Borough President
+logo and visual system from the approved Trump POPS report reference. Complete
+the hotspot reconciliation noted in `DEVELOPER_NOTES.md` before final
+publication.

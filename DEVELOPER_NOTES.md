@@ -21,7 +21,5 @@ tooltip can show the canonical 24,144 total.
 ## Publication placeholders
 
 - Replace “Draft for office review” with the approved publication month.
-- Replace the typographic office mark with an office-supplied official logo
-  asset before public release.
 - Add the final NYC Open Data ACE dataset URL.
 - Add the final report PDF and analytical workbook to Downloads if approved.

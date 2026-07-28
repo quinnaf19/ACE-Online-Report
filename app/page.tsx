@@ -151,33 +151,27 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#report">Skip to report</a>
-      <header className="office-bar">
-        <a className="office-mark" href="https://www.manhattanbp.nyc.gov/" aria-label="Manhattan Borough President home">
-          <span className="seal" aria-hidden="true">M</span>
-          <span><strong>Office of the Manhattan Borough President</strong><small>Policy &amp; Research</small></span>
-        </a>
-        <span className="report-tag">SPECIAL REPORT · 2026</span>
-      </header>
-
-      <details className="mobile-contents">
-        <summary>Contents</summary>
-        <Nav />
-      </details>
+      <input className="nav-state" type="checkbox" id="nav-state" defaultChecked />
+      <label className="nav-toggle" htmlFor="nav-state" aria-label="Toggle report navigation">☰</label>
+      <label className="nav-overlay" htmlFor="nav-state" aria-hidden="true" />
 
       <div className="page-grid">
-        <aside className="contents">
-          <p>Contents</p>
+        <aside className="contents" id="report-nav">
+          <p className="nav-logo">Contents</p>
           <Nav />
-          <div className="byline">Manhattan Borough President&apos;s Office</div>
+          <div className="byline">Brad Hoylman-Sigal · Manhattan Borough President</div>
         </aside>
 
         <main id="report">
           <section className="hero">
-            <div className="route-art" aria-hidden="true">
-              <i /><i /><i /><i /><i />
+            <div className="logo-wrap">
+              <img
+                src="/brad-hoylman-sigal-logo.png"
+                alt="Brad Hoylman-Sigal, Manhattan Borough President"
+              />
             </div>
-            <p className="eyebrow">NYC AUTOMATED CAMERA ENFORCEMENT</p>
-            <h1>Keeping Manhattan<br /><em>Moving</em></h1>
+            <p className="kicker">Manhattan Borough President&apos;s Office</p>
+            <h1>Keeping Manhattan Moving</h1>
             <p className="standfirst">
               What 1.56 million camera-enforcement records reveal about bus-lane obstruction,
               enforcement outcomes, and where attention is needed next.
@@ -400,7 +394,10 @@ export default function Home() {
       </div>
 
       <footer>
-        <div className="office-mark"><span className="seal" aria-hidden="true">M</span><span><strong>Office of the Manhattan Borough President</strong><small>1 Centre Street, New York, NY 10007</small></span></div>
+        <div className="footer-brand">
+          <img src="/brad-hoylman-sigal-logo.png" alt="" />
+          <span><strong>Manhattan Borough President&apos;s Office</strong><small>1 Centre Street, New York, NY 10007</small></span>
+        </div>
         <p>Draft online report · July 2026</p>
       </footer>
     </>
