@@ -35,6 +35,7 @@ h1, h2, h3, h4 { font-family: "Book Antiqua", "Palatino Linotype", Palatino, ser
 
 .nav-state { position: fixed; opacity: 0; pointer-events: none; }
 .nav-toggle {
+  display: none;
   position: fixed;
   top: 12px;
   left: 12px;
@@ -45,14 +46,12 @@ h1, h2, h3, h4 { font-family: "Book Antiqua", "Palatino Linotype", Palatino, ser
   background: var(--navy);
   color: #fff;
   cursor: pointer;
-  font: 20px/1 Arial, sans-serif;
+  font: bold 15px/1 Arial, sans-serif;
   transition: left .25s ease;
 }
+.nav-toggle span { margin-right: .35em; font-size: 20px; vertical-align: -1px; }
 .nav-overlay { display: none; position: fixed; inset: 0; z-index: 499; background: rgba(0,0,0,.45); }
-.page-grid { min-height: 100vh; padding: 0 3em 1em 300px; transition: padding-left .25s ease; }
-.nav-state:not(:checked) ~ .page-grid { padding-left: 3em; }
-.nav-state:not(:checked) ~ .page-grid #report-nav { transform: translateX(-290px); }
-.nav-state:checked ~ .nav-toggle { left: 292px; }
+.page-grid { min-height: 100vh; padding: 0 3em 1em 300px; }
 .contents {
   position: fixed;
   top: 0;
@@ -347,7 +346,10 @@ footer {
 .footer-brand small, footer p { color: rgba(255,255,255,.55); font-size: .65em; }
 
 @media (min-width: 768px) and (max-width: 1040px) {
-  .page-grid, .nav-state:checked ~ .page-grid, .nav-state:not(:checked) ~ .page-grid { padding: 0 1.5em 1em; }
+  .nav-toggle { display: block; }
+  .page-grid { padding: 3.5em 1.5em 1em; }
+  .contents { transform: translateX(-290px); }
+  .nav-state:checked ~ .page-grid .contents { transform: translateX(0); }
   .nav-state:checked ~ .nav-overlay { display: block; }
   .nav-state:checked ~ .nav-toggle { left: 292px; }
   .hero { margin: 0 -1.5em 2.5em; }
@@ -357,7 +359,8 @@ footer {
 
 @media (max-width: 767px) {
   body { font-size: 17px; }
-  .page-grid, .nav-state:checked ~ .page-grid, .nav-state:not(:checked) ~ .page-grid { padding: 3.5em 1em 1em; }
+  .nav-toggle { display: block; }
+  .page-grid { padding: 3.5em 1em 1em; }
   .nav-state:checked ~ .nav-overlay { display: block; }
   .nav-state:checked ~ .nav-toggle { left: 292px; }
   .contents { transform: translateX(-290px); }

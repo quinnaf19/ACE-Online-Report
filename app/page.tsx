@@ -151,8 +151,10 @@ export default function Home() {
   return (
     <>
       <a className="skip-link" href="#report">Skip to report</a>
-      <input className="nav-state" type="checkbox" id="nav-state" defaultChecked />
-      <label className="nav-toggle" htmlFor="nav-state" aria-label="Toggle report navigation">☰</label>
+      <input className="nav-state" type="checkbox" id="nav-state" />
+      <label className="nav-toggle" htmlFor="nav-state" aria-label="Toggle report navigation">
+        <span aria-hidden="true">☰</span> Contents
+      </label>
       <label className="nav-overlay" htmlFor="nav-state" aria-hidden="true" />
 
       <div className="page-grid">
