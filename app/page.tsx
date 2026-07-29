@@ -327,7 +327,6 @@ export default function Home() {
               </table>
             </div>
             <p>Malcolm X Boulevard and West 125th Street was the leading canonical intersection, with <strong>24,144 issued violations</strong>. Several other leading hotspots were located along West 125th Street.</p>
-            <aside className="method-card"><strong>How a hotspot is defined</strong><p>The workbook combines records sharing a standardized canonical intersection name across routes and nearby source coordinates. The embedded map groups by route, stop, and neighborhood, so its route-specific points divide the canonical total across multiple map markers.</p></aside>
             <blockquote><strong>Key finding</strong>The 125th Street cluster is a strong candidate for a coordinated, corridor-level review.</blockquote>
           </Finding>
 
@@ -365,7 +364,8 @@ export default function Home() {
             </details>
             <details>
               <summary>Stops, corridors, and hotspot aggregation</summary>
-              <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; reversed intersection order was standardized. The canonical-stop table aggregates all routes and coordinate variants sharing that standardized label. The map preserves route and neighborhood dimensions, so one canonical stop may appear as multiple points.</p>
+              <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing a standardized intersection name across routes and nearby source coordinates.</p>
+              <p>The embedded map preserves route, stop, and neighborhood dimensions. As a result, route-specific points may divide one canonical intersection total across multiple map markers.</p>
             </details>
             <details>
               <summary>Route exposure and statistical methods</summary>

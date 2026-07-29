@@ -207,13 +207,6 @@ table {
 .outcome-paths p { margin-bottom: .65em; }
 .outcome-paths ul { margin: 0; padding-left: 1.2em; }
 .outcome-paths li + li { margin-top: .5em; }
-.method-card {
-  margin: 1.2em 0 0;
-  padding: 1em 1.4em;
-  border-left: 4px solid var(--blue);
-  border-radius: 0 6px 6px 0;
-  background: #f0f5fb;
-}
 
 .map-section { background: #e8f3fb; text-align: center; }
 .map-frame { height: min(760px, 72vh); min-height: 560px; padding: .35em; border-radius: 8px; background: #fff; box-shadow: 0 1px 5px rgba(0,0,0,.1); }
@@ -298,8 +291,6 @@ caption { margin-bottom: .5em; color: #222; font-size: 1.1em; text-align: left; 
 th, td { padding: .55em .7em; border-bottom: 1px solid #eee; text-align: left; }
 th { color: #111; font-weight: normal; background: #e8eef8; }
 td:nth-child(n+2), th:nth-child(n+2) { text-align: right; }
-.method-card strong { color: var(--blue); font-size: .72em; letter-spacing: .1em; text-transform: uppercase; }
-.method-card p { margin-bottom: 0; }
 
 .confounders { background: #fff; }
 .factor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2em; }
