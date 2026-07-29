@@ -295,8 +295,7 @@ export default function Home() {
               <MiniColumns valueIndex={4} max={65} percent />
               <small className="source">July 2024–March 2026. Sen slope: +0.76 percentage points per month; p &lt; 0.001.</small>
             </figure>
-            <p>The monthly combined rate was 43.9% in July 2024 and 52.3% in March 2026. April through June are treated separately because issued outcomes fell sharply while other outcomes continued.</p>
-            <blockquote><strong>Key finding</strong>More than half of all Manhattan ACE records did not result in an issued violation, and that share rose significantly.</blockquote>
+            <blockquote><strong>Key finding</strong>More than half of all Manhattan ACE records did not result in an issued violation, and that share rose significantly from 43.9% in July 2024 to 52.3% in March 2026.</blockquote>
           </Finding>
 
           <Finding number="03" id="routes" title="Three routes generated seven in ten Manhattan violations" why="Route totals reveal where activity is concentrated, but must be read alongside activation dates, length, frequency, and camera-equipped service.">
