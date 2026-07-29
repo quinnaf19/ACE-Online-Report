@@ -193,6 +193,11 @@ export default function Home() {
                 <p className="card-label">WHAT IS ACE?</p>
                 <h3>Cameras mounted on buses document vehicles blocking the way.</h3>
                 <p>Automated Camera Enforcement records vehicles blocking bus lanes, bus stops, or travel lanes. A recorded event does not automatically become a violation: it may be issued, exempted, or rejected.</p>
+                <div className="fine-callout">
+                  <p className="card-label">HOW FINES WORK</p>
+                  <h3>$50 for a first violation, rising to $250</h3>
+                  <p>Before a violation is issued, two buses must document the obstruction and a City employee must review the evidence. Repeat violations increase in $50 steps, up to $250 per violation. ACE fines are civil penalties, do not add points to a driving record, and may be issued no more than once every two hours for the same type of obstruction. Revenue supports MTA operations, including bus service.</p>
+                </div>
                 <a href="https://www.mta.info/agency/new-york-city-transit/automated-camera-enforcement">Learn about ACE at the MTA ↗</a>
               </aside>
             </div>
