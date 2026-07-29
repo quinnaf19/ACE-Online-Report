@@ -274,13 +274,12 @@ export default function Home() {
           </div>
 
           <Finding number="01" id="trend" title="More routes produced more coverage—but violations declined after adjusting for exposure" why="ACE expanded from four active Manhattan routes at the beginning of the study period to 15 by March 2026. A rise in total violations could therefore reflect more coverage rather than more violations on existing routes.">
-            <p>Across complete months from July 2024 through March 2026, raw monthly issued violations did not show a statistically detectable trend (Kendall’s tau = 0.105; p = 0.526).</p>
             <figure>
               <figcaption><strong>Total violations moved unevenly as ACE expanded</strong><span>Monthly issued violations · July 2024–March 2026</span></figcaption>
               <MiniColumns valueIndex={1} max={52000} />
               <small className="source">Source: MBPO analysis of NYC Open Data. June 2024 excluded as a partial month.</small>
             </figure>
-            <p>After dividing monthly violations by active-route-days, the pattern changed. The median estimated change was <strong>4.41 fewer issued violations per active-route-day each month</strong> (tau = −0.438; p = 0.006).</p>
+            <p>After dividing monthly violations by active-route-days, the pattern changed. The median estimated change was <strong>4.41 fewer issued violations per active-route-day each month.</strong></p>
             <figure>
               <figcaption><strong>Violations fell after accounting for route exposure</strong><span>Issued violations per active-route-day</span></figcaption>
               <MiniColumns valueIndex={3} max={210} />
