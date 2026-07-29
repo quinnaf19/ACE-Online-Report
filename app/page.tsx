@@ -337,13 +337,11 @@ export default function Home() {
                 ["Staggered implementation", "Later routes had fewer months to produce records."],
                 ["Bus frequency", "More trips create more opportunities to observe an obstruction."],
                 ["Route length & overlap", "Long and overlapping routes cover more street space."],
-                ["Camera coverage", "The data does not show uptime or equipped buses by day."],
-                ["Warning periods", "New routes begin with warnings before fine-bearing enforcement."],
                 ["Outcome maturation", "Recent records may not yet show final issued outcomes."],
                 ["Traffic & construction", "Street work, weather, events, and seasonal travel affect demand."],
+                ["Congestion Relief Zone", "Tolling began during the study period and may have changed traffic volumes and obstruction patterns south of 60th Street."],
                 ["Land use & curb function", "Schools, hospitals, retail, and residences use curbs differently."],
                 ["Standardization", "Canonical labels can combine points that appear separately on the map."],
-                ["Descriptive, not causal", "The analysis identifies patterns; it cannot establish ACE caused them."],
               ].map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}
             </div>
           </section>
