@@ -327,7 +327,7 @@ export default function Home() {
               </table>
             </div>
             <p>Malcolm X Boulevard and West 125th Street was the leading canonical intersection, with <strong>24,144 issued violations</strong>. Several other leading hotspots were located along West 125th Street.</p>
-            <blockquote><strong>Key finding</strong>The 125th Street cluster is a strong candidate for a coordinated, corridor-level review.</blockquote>
+            <blockquote><strong>Key finding</strong>The 125th Street cluster is a leading hotspot and strong candidate for further coordinated review.</blockquote>
           </Finding>
 
           <section id="limits" className="report-section confounders">
