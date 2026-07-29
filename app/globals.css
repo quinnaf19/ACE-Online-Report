@@ -53,6 +53,7 @@ h1, h2, h3, h4 { font-family: "Book Antiqua", "Palatino Linotype", Palatino, ser
 .nav-overlay { display: none; position: fixed; inset: 0; z-index: 499; background: rgba(0,0,0,.45); }
 .page-grid { min-height: 100vh; padding: 0 3em 1em 300px; }
 .contents {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
