@@ -178,8 +178,7 @@ export default function Home() {
               What 1.56 million camera-enforcement records reveal about bus-lane obstruction,
               enforcement outcomes, and where attention is needed next.
             </p>
-            <p className="publine">Draft for office review · Data: NYC Open Data, June 20, 2024–June 15, 2026</p>
-            <div className="hero-stat"><strong>1,566,130</strong><span>ACE records analyzed in Manhattan</span></div>
+            <p className="publine">Data: NYC Open Data, June 20, 2024–June 15, 2026</p>
           </section>
 
           <section id="why" className="report-section">
