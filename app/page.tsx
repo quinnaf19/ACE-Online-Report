@@ -305,8 +305,7 @@ export default function Home() {
               <BarChart rows={routes} max={266710} />
               <small className="source">Route labels ending in SBS are presented in their public-facing Select Bus Service form.</small>
             </div>
-            <p>M101 recorded 266,710 issued violations, M15-SBS recorded 170,030, and M100 recorded 99,777. Together, the three routes accounted for <strong>70.1%</strong> of all issued violations.</p>
-            <p>These totals identify enforcement concentration—not standardized risk. Longer and more frequent routes create more opportunities for bus cameras to encounter obstruction.</p>
+            <p>These totals identify enforcement concentration, however, it should be acknowledged that longer and more frequent routes create more opportunities for bus cameras to encounter obstruction.</p>
             <blockquote><strong>Key finding</strong>M101, M15-SBS, and M100 generated seven in ten issued violations in the Manhattan dataset.</blockquote>
           </Finding>
 
