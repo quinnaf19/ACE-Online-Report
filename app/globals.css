@@ -164,7 +164,7 @@ table {
   text-transform: uppercase;
 }
 .section-head { margin-bottom: 1.2em; }
-.section-head h2, .finding > h2, .caution h2, .analysis-break h2, .downloads h2 {
+.section-head h2, .finding > h2, .analysis-break h2, .downloads h2 {
   margin: 0 0 .7em;
   color: #111;
   font-size: 1.5em;
@@ -221,17 +221,6 @@ table {
 .map-actions { display: flex; align-items: center; justify-content: center; gap: 1em; margin-top: 1em; }
 .map-actions p { max-width: 600px; margin: 0; color: #555; font-size: .8em; text-align: left; }
 .button { display: inline-block; padding: .65em 1.1em; border-radius: 5px; background: var(--blue); color: #fff; text-decoration: none; }
-
-.caution {
-  margin: 1.8em 0;
-  padding: 1.6em 2em;
-  border: 2px dashed #bbb;
-  border-radius: 8px;
-  background: #fafafa;
-}
-.caution .section-label { color: #888; }
-.caution h2 { font-size: 1.2em; }
-.caution p { color: #333; }
 
 .stat-grid { display: flex; flex-wrap: nowrap; gap: .6em; margin: 1.4em 0; }
 .stat-grid article { flex: 1; min-width: 0; padding: .9em .7em; border-left: 4px solid; border-radius: 6px; text-align: center; }
@@ -397,7 +386,7 @@ footer {
   .two-col, .outcome-paths, .split-charts, .factor-grid, .download-grid { grid-template-columns: 1fr; }
   .stat-grid { flex-wrap: wrap; }
   .stat-grid article { flex: 1 1 calc(50% - .6em); }
-  .report-section, .finding, .caution, .downloads { padding: 1.4em 1.2em; }
+  .report-section, .finding, .downloads { padding: 1.4em 1.2em; }
   .map-frame { height: 600px; min-height: 0; }
   .map-actions { display: block; }
   .map-actions p { margin: 1em auto 0; text-align: center; }

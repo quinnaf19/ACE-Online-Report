@@ -247,13 +247,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="caution">
-            <p className="section-label">A NOTE BEFORE WE DIVE IN</p>
-            <h2>Camera records are not the same as the underlying prevalence of obstruction</h2>
-            <p>Totals depend on when a route received ACE, how many buses and trips operated, route length, camera availability, review rules, processing time, and the underlying frequency of obstruction.</p>
-            <p>This report identifies patterns in recorded enforcement activity and outcomes. It does not treat raw counts as a direct measure of illegal obstruction, and it does not claim that ACE caused the observed trends.</p>
-          </section>
-
           <section id="findings" className="report-section">
             <SectionHead label="MAIN FINDINGS" title="Here’s what the data shows" />
             <div className="stat-grid">
