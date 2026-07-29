@@ -318,7 +318,7 @@ export default function Home() {
             <blockquote><strong>Key finding</strong>Uptown neighborhoods and a small group of major corridors account for a large share of recorded enforcement activity.</blockquote>
           </Finding>
 
-          <Finding number="05" id="hotspots" title="West 125th Street anchors several of Manhattan’s largest hotspots" why="Intersection-level hotspots show where targeted curb management or street-level intervention may be possible.">
+          <Finding number="05" id="hotspots" title="West 125th Street anchors several of Manhattan’s largest hotspots" why="Intersection-level hotspots show where targeted curb level interventions should be focused.">
             <div className="table-wrap">
               <table>
                 <caption>Leading canonical intersections</caption>
