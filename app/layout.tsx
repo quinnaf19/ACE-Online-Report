@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = requestHeaders.get("x-forwarded-proto") || "https";
   const base = new URL(`${protocol}://${host}`);
   const description =
-    "What 1.56 million Automated Camera Enforcement records reveal about Manhattan bus-lane obstruction and enforcement outcomes.";
+    "What 1.57 million Automated Camera Enforcement records reveal about Manhattan bus-lane obstruction and enforcement outcomes.";
 
   return {
     title: "Keeping Manhattan Moving",

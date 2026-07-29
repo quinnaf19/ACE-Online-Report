@@ -27,7 +27,7 @@ npm test
 - Report styling: `app/globals.css`
 - Publication blueprint: `docs/ACE_Online_Report_Blueprint_and_Draft.md`
 - Downloadable summary files: `public/downloads/`
-- Prepublication items: `DEVELOPER_NOTES.md`
+- Audit and publication notes: `DEVELOPER_NOTES.md`
 
 ## Embedded map
 
@@ -37,8 +37,7 @@ The report embeds:
 
 ## Publication status
 
-This repository is a first complete draft for Manhattan Borough President's
-Office review. The site now uses the official Manhattan Borough President
-logo and visual system from the approved Trump POPS report reference. Complete
-the hotspot reconciliation noted in `DEVELOPER_NOTES.md` before final
-publication.
+The site uses the Manhattan Borough President logo and visual system from the
+approved Trump POPS report reference. Its published figures have been
+reconciled to the downloadable analytical summaries; see
+`DEVELOPER_NOTES.md` for audit scope and remaining publication decisions.

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Keeping Manhattan Moving | Manhattan ACE Report",
   description:
-    "What 1.56 million Automated Camera Enforcement records reveal about Manhattan bus-lane obstruction, enforcement outcomes, and where attention is needed next.",
+    "What 1.57 million Automated Camera Enforcement records reveal about Manhattan bus-lane obstruction, enforcement outcomes, and where attention is needed next.",
 };
 
 const monthly = [
@@ -46,7 +46,7 @@ const neighborhoods = [
   ["Washington Heights (North)", 61361],
   ["East Harlem (North)", 57788],
   ["Upper East Side–Yorkville", 48731],
-  ["Upper East Side–Lenox Hill", 45435],
+  ["Upper East Side–Lenox Hill–Roosevelt Island", 45435],
   ["Upper East Side–Carnegie Hill", 39345],
 ] as const;
 
@@ -175,10 +175,10 @@ export default function Home() {
             <p className="kicker">Manhattan Borough President&apos;s Office</p>
             <h1>Keeping Manhattan Moving</h1>
             <p className="standfirst">
-              What 1.56 million camera-enforcement records reveal about bus-lane obstruction,
+              What 1.57 million camera-enforcement records reveal about bus-lane obstruction,
               enforcement outcomes, and where attention is needed next.
             </p>
-            <p className="publine">Data: NYC Open Data, June 20, 2024–June 15, 2026</p>
+            <p className="publine">Data: New York State Open Data (MTA), June 20, 2024–June 15, 2026</p>
           </section>
 
           <section id="why" className="report-section">
@@ -277,7 +277,7 @@ export default function Home() {
             <figure>
               <figcaption><strong>Total violations moved unevenly as ACE expanded</strong><span>Monthly issued violations · July 2024–March 2026</span></figcaption>
               <MiniColumns valueIndex={1} max={52000} />
-              <small className="source">Source: MBPO analysis of NYC Open Data. June 2024 excluded as a partial month.</small>
+              <small className="source">Source: MBPO analysis of New York State Open Data (MTA). June 2024 excluded as a partial month.</small>
             </figure>
             <p>After dividing monthly violations by active-route-days, the pattern changed. The median estimated change was <strong>4.41 fewer issued violations per active-route-day each month.</strong></p>
             <figure>
@@ -347,7 +347,7 @@ export default function Home() {
           </section>
 
           <section id="recommendations" className="report-section recommendations">
-            <SectionHead label="RECOMMENDATIONS · DRAFT FOR OFFICE REVIEW" title="Use expansion to target the places where enforcement and street design can do the most" />
+            <SectionHead label="RECOMMENDATIONS" title="Use expansion to target the places where enforcement and street design can do the most" />
             <div className="recommendation-list">
               {recommendations.map((rec) => <article key={rec[0]}><span>{rec[0]}</span><div><h3>{rec[1]}</h3><p>{rec[2]}</p></div></article>)}
             </div>
@@ -362,7 +362,7 @@ export default function Home() {
             </details>
             <details>
               <summary>Stops, corridors, and hotspot aggregation</summary>
-              <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing a standardized intersection name across routes and nearby source coordinates.</p>
+              <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing the same standardized intersection name across routes and source-coordinate variants.</p>
               <p>The embedded map combines matching records into one canonical intersection marker by default. Route and neighborhood filters recalculate the total using only records in the selected subset.</p>
             </details>
             <details>
@@ -376,6 +376,8 @@ export default function Home() {
             <div className="sources">
               <h3>Primary sources</h3>
               <a href="https://www.mta.info/agency/new-york-city-transit/automated-camera-enforcement">MTA Automated Camera Enforcement ↗</a>
+              <a href="https://data.ny.gov/Transportation/MTA-Bus-Automated-Camera-Enforcement-Violations-Be/kh8p-hcbm">MTA ACE violations dataset ↗</a>
+              <a href="https://data.ny.gov/Transportation/MTA-Bus-Automated-Camera-Enforced-Routes-Beginning/ki2b-sg5y">MTA ACE route implementation dates ↗</a>
               <a href="https://www.nyc.gov/content/planning/pages/resources/datasets/neighborhood-tabulation">NYC DCP Neighborhood Tabulation Areas ↗</a>
               <a href="https://data.cityofnewyork.us/resource/63ge-mke6.geojson?$limit=5000">2020 Census Tract GeoJSON ↗</a>
             </div>

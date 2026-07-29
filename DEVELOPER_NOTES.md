@@ -1,25 +1,17 @@
 # Developer notes
 
-## Hotspot reconciliation
+## Data audit
 
-The analytical workbook reports 24,144 issued violations for the canonical
-label `MALCOLM X BLVD / W 125 ST`. That table groups every record sharing the
-standardized stop label, across routes and source coordinates.
+The report and embedded map were reconciled against the final cleaned analysis
+on July 29, 2026. Checks cover record and outcome totals, study dates, monthly
+series, route exposure, route/corridor/neighborhood/stop rankings, chart
+values, and canonical-intersection map totals.
 
-The existing map data groups records by route, canonical stop, and NTA. It
-therefore divides the same canonical intersection across multiple map points.
-The live map also appears to use an earlier generated `stops.json`, which is why
-the visible combined point total cited during review (22,315) is lower than the
-current canonical workbook total.
+The map now combines route/NTA rows sharing a canonical stop label. For
+example, `MALCOLM X BLVD / W 125 ST` displays the reconciled total of 24,144
+issued violations before filters are applied. Canonical marker coordinates are
+drawn from `stop_summary.csv`.
 
-The report uses the workbook's canonical-intersection definition for rankings
-and explains that definition to readers. Before the report is marked final,
-regenerate the map data from the final analytical CSV and add an
-intersection-level aggregation/display option so the map’s hotspot ranking and
-tooltip can show the canonical 24,144 total.
+## Publication decisions
 
-## Publication placeholders
-
-- Replace “Draft for office review” with the approved publication month.
-- Add the final NYC Open Data ACE dataset URL.
 - Add the final report PDF and analytical workbook to Downloads if approved.
