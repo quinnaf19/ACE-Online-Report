@@ -250,7 +250,6 @@ export default function Home() {
           <section id="findings" className="report-section">
             <SectionHead label="MAIN FINDINGS" title="Here’s what the data shows" />
             <div className="stat-grid">
-              <article><strong>1.57M</strong><span>ACE records analyzed</span></article>
               <article><strong>765,297</strong><span>issued violations</span></article>
               <article><strong>51.1%</strong><span>did not result in an issued violation</span></article>
               <article><strong>−4.41</strong><span>issued violations per active-route-day each month</span></article>

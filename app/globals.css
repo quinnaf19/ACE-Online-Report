@@ -224,11 +224,10 @@ table {
 
 .stat-grid { display: flex; flex-wrap: nowrap; gap: .6em; margin: 1.4em 0; }
 .stat-grid article { flex: 1; min-width: 0; padding: .9em .7em; border-left: 4px solid; border-radius: 6px; text-align: center; }
-.stat-grid article:nth-child(1) { background: #fce8e8; border-color: #c0392b; }
-.stat-grid article:nth-child(2) { background: #fff3cd; border-color: var(--gold); }
-.stat-grid article:nth-child(3) { background: #f0f4e8; border-color: var(--green); }
-.stat-grid article:nth-child(4) { background: #e8eef8; border-color: var(--blue); }
-.stat-grid article:nth-child(5) { background: #f3e8f8; border-color: var(--purple); }
+.stat-grid article:nth-child(1) { background: #fff3cd; border-color: var(--gold); }
+.stat-grid article:nth-child(2) { background: #f0f4e8; border-color: var(--green); }
+.stat-grid article:nth-child(3) { background: #e8eef8; border-color: var(--blue); }
+.stat-grid article:nth-child(4) { background: #f3e8f8; border-color: var(--purple); }
 .stat-grid strong { display: block; font-size: 1.9em; font-weight: bold; line-height: 1.2; }
 .stat-grid span { display: block; margin-top: .3em; color: #555; font-size: .76em; }
 .outcome-chart { display: flex; min-height: 64px; margin: 1.4em 0; overflow: hidden; border-radius: 6px; }
