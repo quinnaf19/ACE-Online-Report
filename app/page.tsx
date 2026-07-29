@@ -191,8 +191,7 @@ export default function Home() {
               </div>
               <aside className="explainer">
                 <p className="card-label">WHAT IS ACE?</p>
-                <h3>Cameras mounted on buses document vehicles blocking the way.</h3>
-                <p>Automated Camera Enforcement records vehicles blocking bus lanes, bus stops, or travel lanes. A recorded event does not automatically become a violation: it may be issued, exempted, or rejected.</p>
+                <p>Automated Camera Enforcement is a program where cameras mounted on buses document vehicles blocking bus lanes, bus stops, or travel lanes. A recorded event does not automatically become a violation: it may be issued, exempted, or rejected.</p>
                 <div className="fine-callout">
                   <p className="card-label">HOW FINES WORK</p>
                   <h3>$50 for a first violation, rising to $250</h3>
