@@ -182,12 +182,10 @@ export default function Home() {
           </section>
 
           <section id="why" className="report-section">
-            <SectionHead label="WHY IT MATTERS" title="Blocked bus lanes and stops cost riders time—and can put them in danger" />
+            <SectionHead label="WHY IT MATTERS" title="Blocked bus lanes and stops cost riders time and can put them in danger" />
             <div className="two-col">
               <div className="prose">
-                <p>New York City buses depend on clear streets and accessible curbs. When a vehicle blocks a bus lane, double parks along a route, or occupies a bus stop, it can delay service for every rider behind it.</p>
-                <p>When a bus cannot pull fully to the curb, passengers may have to board or exit in the street—a particular barrier for riders using wheelchairs and others who need an accessible boarding area.</p>
-                <p>As ACE expands, policymakers need to understand not only how many records the system generates, but where those records are concentrated and what happens after an event is captured.</p>
+                <p>New York City buses depend on clear streets and accessible curbs. When a vehicle blocks a bus lane, double parks along a route, or occupies a bus stop, it can delay service for riders throughout the route. Curb obstructions also create safety and accessibility risks. When a bus cannot pull fully to the curb, passengers may have to board or exit in the street. As ACE continues to expand to more routes, policymakers need to understand not only how many records the program generates, but also where those records are concentrated and what happens after an event is captured.</p>
               </div>
               <aside className="explainer">
                 <p className="card-label">WHAT IS ACE?</p>
