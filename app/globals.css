@@ -19,14 +19,14 @@
 *, *::before, *::after { box-sizing: border-box; }
 html {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 body {
   margin: 0;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--paper);
   color: var(--ink);
   font-family: "Book Antiqua", "Palatino Linotype", Palatino, "Times New Roman", serif;
