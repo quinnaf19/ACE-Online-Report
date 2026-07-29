@@ -210,12 +210,25 @@ export default function Home() {
               <p>We tracked how issued violations and non-issued records changed as ACE expanded to more routes, compared outcomes across neighborhoods, and identified the corridors and intersections where violations were most concentrated.</p>
               <p>The result is a detailed picture of how ACE enforcement activity and outcomes are distributed across Manhattan—showing not only when and where violations are issued, but also where recorded events are most likely to leave the system without becoming violations.</p>
             </div>
-            <div className="outcome-defs">
-              <article><span className="dot issued" /><h3>Issued</h3><p>Status is “Violation Issued.”</p></article>
-              <article><span className="dot exempt" /><h3>Exemption</h3><p>One of four recognized exempt statuses.</p></article>
-              <article><span className="dot rejected" /><h3>Rejection</h3><p>Technical issue or missing driver or vehicle information.</p></article>
+            <div className="outcome-guide">
+              <p className="card-label">FROM CAMERA RECORD TO FINAL OUTCOME</p>
+              <p>After an ACE camera records a potential obstruction, the record can follow one of two broad paths:</p>
+              <div className="outcome-paths">
+                <article>
+                  <h3>Issued</h3>
+                  <p>The event is confirmed and a violation is issued to the vehicle owner.</p>
+                </article>
+                <article>
+                  <h3>Non-issued</h3>
+                  <p>This report combines exemptions and rejections under “non-issued.” No violation results, but the underlying reasons differ:</p>
+                  <ul>
+                    <li><strong>Driver or vehicle information missing:</strong> The event appears valid, but missing, temporary, incorrect, or unmatched registration information prevents issuance.</li>
+                    <li><strong>Exempt vehicle or activity:</strong> The event involves an allowed bus or paratransit vehicle, qualifying commercial stop under 20 minutes, emergency vehicle, or another recognized exemption such as a diplomatic or government vehicle.</li>
+                    <li><strong>Technical issue or other rejection:</strong> Image quality or an obstructed view prevents reviewers from confirming the event—for example, because of weather, darkness, glare, a blocked plate or lane, or a camera problem.</li>
+                  </ul>
+                </article>
+              </div>
             </div>
-            <p className="note">“Non-issued” combines exemptions and rejections. These outcomes have different causes, but share one result: no violation was issued.</p>
           </section>
 
           <section id="map" className="report-section map-section">

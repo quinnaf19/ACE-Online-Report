@@ -113,8 +113,7 @@ main { width: 100%; min-width: 0; max-width: 1220px; margin: 0 auto; }
 .report-section,
 .finding,
 .two-col > *,
-.pipeline > *,
-.outcome-defs > *,
+.outcome-paths > *,
 .split-charts > *,
 .factor-grid > *,
 .download-grid > * {
@@ -191,15 +190,24 @@ table {
 .fine-callout p:last-child { color: #444; font-size: .84em; line-height: 1.55; }
 .card-label { margin-bottom: .6em; color: #888; font-size: .72em; letter-spacing: .13em; text-transform: uppercase; }
 
-.outcome-defs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; margin: 1.2em 0; }
-.outcome-defs article { padding: 1em 1.1em; border-radius: 6px; background: #f5f7f9; }
-.outcome-defs h3 { margin: .25em 0; font-size: 1em; }
-.outcome-defs p { margin: 0; color: #555; font-size: .82em; }
-.dot { display: block; width: 11px; height: 11px; border-radius: 50%; }
-.dot.issued { background: var(--blue); }
-.dot.exempt { background: var(--gold); }
-.dot.rejected { background: var(--red); }
-.note, .method-card {
+.outcome-guide {
+  margin: 1.4em 0 0;
+  padding: 1.3em 1.5em;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 7px 7px 0;
+  background: #f0f5fb;
+}
+.outcome-guide > p { font-size: .9em; }
+.outcome-paths { display: grid; grid-template-columns: .7fr 1.3fr; gap: .8em; }
+.outcome-paths article { padding: 1em 1.1em; border-radius: 6px; background: #fff; }
+.outcome-paths article:first-child { border-top: 4px solid var(--blue); }
+.outcome-paths article:last-child { border-top: 4px solid var(--gold); }
+.outcome-paths h3 { margin: 0 0 .35em; font-size: 1em; }
+.outcome-paths p, .outcome-paths li { color: #444; font-size: .8em; line-height: 1.5; }
+.outcome-paths p { margin-bottom: .65em; }
+.outcome-paths ul { margin: 0; padding-left: 1.2em; }
+.outcome-paths li + li { margin-top: .5em; }
+.method-card {
   margin: 1.2em 0 0;
   padding: 1em 1.4em;
   border-left: 4px solid var(--blue);
@@ -386,7 +394,7 @@ footer {
   .contents .nav-logo { padding-top: 2.3em; }
   .hero { margin: 0 -1em 2em; padding: 3em 1.2em 2em; }
   .hero h1 { font-size: 1.9em; }
-  .two-col, .outcome-defs, .split-charts, .factor-grid, .download-grid { grid-template-columns: 1fr; }
+  .two-col, .outcome-paths, .split-charts, .factor-grid, .download-grid { grid-template-columns: 1fr; }
   .stat-grid { flex-wrap: wrap; }
   .stat-grid article { flex: 1 1 calc(50% - .6em); }
   .report-section, .finding, .caution, .downloads { padding: 1.4em 1.2em; }
