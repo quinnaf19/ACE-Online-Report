@@ -363,7 +363,7 @@ export default function Home() {
             <details>
               <summary>Stops, corridors, and hotspot aggregation</summary>
               <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing a standardized intersection name across routes and nearby source coordinates.</p>
-              <p>The embedded map preserves route, stop, and neighborhood dimensions. As a result, route-specific points may divide one canonical intersection total across multiple map markers.</p>
+              <p>The embedded map combines matching records into one canonical intersection marker by default. Route and neighborhood filters recalculate the total using only records in the selected subset.</p>
             </details>
             <details>
               <summary>Route exposure and statistical methods</summary>
