@@ -206,7 +206,7 @@ export default function Home() {
           <section id="study" className="report-section tinted">
             <SectionHead label="HOW WE STUDIED IT" title="We compiled every Manhattan ACE record" />
             <div className="lede">
-              <p>To understand how ACE enforcement is working across Manhattan, we reviewed 1,596,097 records collected between June 20, 2024 and June 15, 2026. We verified each record using its longitude and latitude and retained 1,566,130 records located within Manhattan for analysis.</p>
+              <p>To understand how ACE enforcement is working across Manhattan, we reviewed 1,596,097 records from New York State Open Data collected between June 20, 2024 and June 15, 2026. We verified each record using its longitude and latitude and retained 1,566,130 records located within Manhattan for analysis.</p>
               <p>We tracked how issued violations and non-issued records changed as ACE expanded to more routes, compared outcomes across neighborhoods, and identified the corridors and intersections where violations were most concentrated.</p>
               <p>The result is a detailed picture of how ACE enforcement activity and outcomes are distributed across Manhattan—showing not only when and where violations are issued, but also where recorded events are most likely to leave the system without becoming violations.</p>
             </div>
