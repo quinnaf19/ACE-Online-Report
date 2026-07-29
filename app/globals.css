@@ -191,10 +191,6 @@ table {
 .fine-callout p:last-child { color: #444; font-size: .84em; line-height: 1.55; }
 .card-label { margin-bottom: .6em; color: #888; font-size: .72em; letter-spacing: .13em; text-transform: uppercase; }
 
-.pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6em; margin: 1.4em 0; }
-.pipeline div { position: relative; padding: 1em; border-top: 4px solid var(--blue); border-radius: 6px; background: #e8eef8; }
-.pipeline span { display: block; color: var(--blue); font-size: .68em; letter-spacing: .1em; }
-.pipeline strong { display: block; margin-top: .45em; font-size: .82em; }
 .outcome-defs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; margin: 1.2em 0; }
 .outcome-defs article { padding: 1em 1.1em; border-radius: 6px; background: #f5f7f9; }
 .outcome-defs h3 { margin: .25em 0; font-size: 1em; }
@@ -390,7 +386,7 @@ footer {
   .contents .nav-logo { padding-top: 2.3em; }
   .hero { margin: 0 -1em 2em; padding: 3em 1.2em 2em; }
   .hero h1 { font-size: 1.9em; }
-  .two-col, .pipeline, .outcome-defs, .split-charts, .factor-grid, .download-grid { grid-template-columns: 1fr; }
+  .two-col, .outcome-defs, .split-charts, .factor-grid, .download-grid { grid-template-columns: 1fr; }
   .stat-grid { flex-wrap: wrap; }
   .stat-grid article { flex: 1 1 calc(50% - .6em); }
   .report-section, .finding, .caution, .downloads { padding: 1.4em 1.2em; }
