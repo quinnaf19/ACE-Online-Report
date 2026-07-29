@@ -339,12 +339,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2.5em -3em -1em;
+  margin: 2.5em 0 0 280px;
   padding: 1.5em 3em;
   background: var(--navy);
   color: #fff;
 }
-.footer-brand { display: flex; align-items: center; gap: .8em; }
+.footer-brand { display: flex; min-width: 0; align-items: center; gap: .8em; }
 .footer-brand img { width: 55px; height: 55px; object-fit: contain; }
 .footer-brand strong, .footer-brand small { display: block; }
 .footer-brand strong { font-size: .75em; }
@@ -358,7 +358,7 @@ footer {
   .nav-state:checked ~ .nav-overlay { display: block; }
   .nav-state:checked ~ .nav-toggle { left: 292px; }
   .hero { margin: 0 -1.5em 2.5em; }
-  footer { margin-left: -1.5em; margin-right: -1.5em; }
+  footer { margin: 2em 0 0; }
   .contents .nav-logo { padding-top: 2.3em; }
 }
 
@@ -387,7 +387,7 @@ footer {
   .column-value { display: none; }
   .recommendation-list article { grid-template-columns: 42px 1fr; }
   .table-wrap, table { display: block; max-width: 100%; overflow-x: auto; }
-  footer { display: block; margin: 2em -1em -1em; padding: 1.5em 1em; }
+  footer { display: block; margin: 2em 0 0; padding: 1.5em 1em; }
   footer p { margin-top: 1em; }
 }
 

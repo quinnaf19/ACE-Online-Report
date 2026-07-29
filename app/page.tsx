@@ -403,7 +403,7 @@ export default function Home() {
           <img src="/brad-hoylman-sigal-logo.png" alt="" />
           <span><strong>Manhattan Borough President&apos;s Office</strong><small>1 Centre Street, New York, NY 10007</small></span>
         </div>
-        <p>Draft online report · July 2026</p>
+        <p>ACE online report · July 2026</p>
       </footer>
     </>
   );
