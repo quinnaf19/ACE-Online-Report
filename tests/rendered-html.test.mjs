@@ -76,3 +76,15 @@ test("methodology documents the reproducible workflow and exact exclusions", asy
     "pandas and NumPy",
   ]) assert.match(page, new RegExp(text.replace(/[–]/g, "–")));
 });
+
+test("bus speed finding is documented, sourced, and kept separate from the map", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  assert.match(page, /<Finding number="06" id="speeds"/);
+  assert.match(page, /More than half of ACE route services averaged 6\.2 mph or less/);
+  assert.match(page, /median across the 19 individual services/);
+  assert.match(page, /MTA Bus Route Segment Speeds/);
+  assert.match(page, /reports\.jehiah\.cz\/bus_speeds/);
+  assert.match(page, /descriptive cross-sectional comparison, not a before-and-after evaluation/);
+  assert.match(page, /<a href="#speeds">6 · Bus speeds<\/a>/);
+  assert.doesNotMatch(page, /ace-map\.quinnaf19\.workers\.dev\/.*speed/);
+});

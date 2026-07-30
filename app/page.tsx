@@ -72,6 +72,28 @@ const stops = [
   ["Second Ave / E 78 St", 18143, "42.2%"],
 ] as const;
 
+const aceRouteSpeeds = [
+  ["M42", 5.1],
+  ["M57", 5.1],
+  ["M31", 5.4],
+  ["M34-SBS", 5.5],
+  ["M34A-SBS", 5.6],
+  ["M23-SBS", 5.8],
+  ["M14A-SBS", 6.0],
+  ["M4", 6.2],
+  ["M86-SBS", 6.2],
+  ["M116", 6.2],
+  ["M14D-SBS", 6.3],
+  ["M7", 6.3],
+  ["M96", 6.4],
+  ["M100", 6.4],
+  ["M2", 7.0],
+  ["M101", 7.0],
+  ["M79-SBS", 7.9],
+  ["M15-SBS", 8.1],
+  ["M60-SBS", 11.5],
+] as const;
+
 type Recommendation = {
   number: string;
   title: string;
@@ -324,6 +346,7 @@ export default function Home() {
               <li><strong>A growing share did not produce a violation.</strong> The combined non-issued rate rose an estimated 0.76 percentage points per month through March 2026.</li>
               <li><strong>Recorded events were concentrated.</strong> M101, M15-SBS, and M100 accounted for more than two-thirds of all records.</li>
               <li><strong>Uptown Manhattan contained many major hotspots.</strong> Washington Heights (South) led all NTAs, while several leading intersections were located along West 125th Street.</li>
+              <li><strong>Many ACE routes remained very slow.</strong> In May 2026, more than half of the individual services represented in the ACE data averaged 6.2 mph or less.</li>
             </ol>
           </section>
 
@@ -381,6 +404,19 @@ export default function Home() {
             </div>
             <p>Malcolm X Boulevard and West 125th Street was the leading canonical intersection, with <strong>35,893 ACE records</strong>. Several other leading hotspots were located along West 125th Street.</p>
             <blockquote><strong>Key finding</strong>The 125th Street cluster is a leading hotspot and strong candidate for further coordinated review.</blockquote>
+          </Finding>
+
+          <Finding number="06" id="speeds" title="Many ACE routes remained slow—but record totals did not always identify the slowest service" why="ACE records show where bus cameras encountered potential obstruction. Bus speeds add a rider-centered measure of how quickly service moved through all of the conditions encountered along a route.">
+            <div className="chart-card">
+              <h3>More than half of ACE route services averaged 6.2 mph or less</h3>
+              <p>Average bus speed by individual route service · May 2026</p>
+              <BarChart rows={aceRouteSpeeds} max={11.5} suffix=" mph" />
+              <small className="source">Source: MTA Bus Route Segment Speeds, summarized by reports.jehiah.cz. The M14A/M14D and M34/M34A branches are shown separately because the speed source reports them as distinct services.</small>
+            </div>
+            <p>Average speeds ranged from <strong>5.1 mph on the M42 and M57</strong> to 11.5 mph on the M60-SBS. The median across the 19 individual services represented by Manhattan’s 17 ACE route groups was <strong>6.2 mph</strong>; 10 services averaged 6.2 mph or less.</p>
+            <p>The routes producing the most ACE records were not necessarily the slowest. M101 generated the most records and averaged 7.0 mph, while M15-SBS ranked second in records and averaged 8.1 mph. Meanwhile, the M42 and M57 had the slowest average speeds but generated far fewer ACE records during the study period.</p>
+            <p>This comparison does not measure how much ACE changed bus speeds. Speed reflects traffic, signals, stop dwell time, construction, route design, and other operating conditions, while ACE totals also depend on implementation date, route length, service frequency, and camera coverage.</p>
+            <blockquote><strong>Key finding</strong>Slow service remains common on ACE routes, especially on several Midtown and crosstown services, but ACE record totals alone should not be treated as a measure of route speed.</blockquote>
           </Finding>
 
           <section id="recommendations" className="report-section recommendations">
@@ -469,6 +505,12 @@ export default function Home() {
               <p>The primary record trend covers 23 complete months from July 2024 through May 2026. June 2024 and June 2026 were excluded because each contains only part of a month. Outcome trends end in March 2026 because issued violations fall sharply afterward while non-issued records continue, indicating that recent records may not have completed review.</p>
             </details>
             <details>
+              <summary>Bus speed comparison</summary>
+              <p>The bus speed finding uses May 2026 route-level averages published by the MTA Bus Speed by Route Segment report at reports.jehiah.cz. That report summarizes the MTA Bus Route Segment Speeds dataset from New York State Open Data. Its speed measure represents the rider’s experienced travel speed and includes time spent at stops, traffic signals, traffic congestion, deliveries, road closures, and other conditions encountered along the route.</p>
+              <p>We matched the published route labels to the 17 Manhattan ACE route groups and ranked their average speeds. The speed source reports M14A-SBS and M14D-SBS separately, as well as M34-SBS and M34A-SBS. Those branches are therefore displayed as 19 individual services rather than being combined into artificial route averages. The median is the middle value after ranking those 19 reported averages.</p>
+              <p>This is a descriptive cross-sectional comparison, not a before-and-after evaluation. Routes received ACE at different times, and the available speed snapshot does not isolate the effect of camera enforcement from changes in traffic, schedules, construction, street design, stop dwell time, or other operating conditions.</p>
+            </details>
+            <details>
               <summary>Statistical methods</summary>
               <p><strong>Mann–Kendall trend test:</strong> This non-parametric test assessed whether monthly values generally moved upward or downward over time. It compares the ordering of month-to-month observations and does not require the data to follow a normal distribution.</p>
               <p><strong>Sen slope:</strong> For every pair of months, the analysis calculated the change in the measure divided by the number of months between them. The median of those pairwise slopes estimates the typical monthly change. This produced the finding of 7.29 fewer ACE records per active-route-day each month.</p>
@@ -487,6 +529,7 @@ export default function Home() {
                 <li><strong>Recorded events are not all obstruction:</strong> the dataset includes only events observed by an equipped bus while its camera system was operating.</li>
                 <li><strong>Exposure is approximate:</strong> active-route-days account for implementation timing, but the data does not provide camera-equipped trips, operating hours, camera uptime, route miles, or comparable service-frequency denominators.</li>
                 <li><strong>Route totals are not standardized risk:</strong> older, longer, more frequent, and overlapping routes have more opportunities to generate records.</li>
+                <li><strong>Speed is a route-level snapshot:</strong> the May 2026 averages combine many operating conditions and cannot establish whether ACE caused buses to move faster or slower.</li>
                 <li><strong>Recent outcomes may be incomplete:</strong> the final months may contain records that had not reached a final outcome when the data was extracted.</li>
                 <li><strong>Canonical labels simplify geography:</strong> records with the same standardized intersection name are combined even when source coordinates vary.</li>
                 <li><strong>The analysis is descriptive:</strong> traffic, construction, weather, land use, enforcement practices, and other concurrent changes prevent causal conclusions about ACE’s effect.</li>
@@ -497,6 +540,8 @@ export default function Home() {
               <a href="https://www.mta.info/agency/new-york-city-transit/automated-camera-enforcement">MTA Automated Camera Enforcement ↗</a>
               <a href="https://data.ny.gov/Transportation/MTA-Bus-Automated-Camera-Enforcement-Violations-Be/kh8p-hcbm">MTA ACE violations dataset ↗</a>
               <a href="https://data.ny.gov/Transportation/MTA-Bus-Automated-Camera-Enforced-Routes-Beginning/ki2b-sg5y">MTA ACE route implementation dates ↗</a>
+              <a href="https://data.ny.gov/Transportation/MTA-Bus-Route-Segment-Speeds-Beginning-2025/kufs-yh3x">MTA bus route segment speeds ↗</a>
+              <a href="https://reports.jehiah.cz/bus_speeds/">MTA Bus Speed by Route Segment report ↗</a>
               <a href="https://www.nyc.gov/content/planning/pages/resources/datasets/neighborhood-tabulation">NYC DCP Neighborhood Tabulation Areas ↗</a>
               <a href="https://data.cityofnewyork.us/resource/63ge-mke6.geojson?$limit=5000">2020 Census Tract GeoJSON ↗</a>
             </div>
@@ -544,6 +589,7 @@ function Nav() {
       <a href="#routes">3 · Route concentration</a>
       <a href="#geography">4 · Neighborhoods</a>
       <a href="#hotspots">5 · Hotspots</a>
+      <a href="#speeds">6 · Bus speeds</a>
       <a href="#recommendations">Recommendations</a>
       <a href="#limits">Confounding Factors</a>
       <a href="#methodology">Data & Methodology</a>
