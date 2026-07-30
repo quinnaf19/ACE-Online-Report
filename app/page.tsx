@@ -261,6 +261,33 @@ export default function Home() {
             </div>
           </section>
 
+          <aside className="analysis-note" aria-labelledby="analysis-note-title">
+            <p className="section-label">NOTE BEFORE WE DIVE IN</p>
+            <h2 id="analysis-note-title">Did recorded ACE events decline over time?</h2>
+            <p>Answering that question is not as simple as comparing one month’s total with another. During the study period, ACE expanded from four active Manhattan routes to seventeen. Every added route gave bus cameras more opportunities to record an event—even if obstruction on each operating route was becoming less frequent.</p>
+            <div className="exposure-model" aria-label="Two forces shape monthly ACE record totals">
+              <div>
+                <span className="model-arrow up">↑</span>
+                <strong>More active routes</strong>
+                <p>More streets and service days are observed.</p>
+              </div>
+              <b>push raw totals up</b>
+              <div>
+                <span className="model-arrow down">↓</span>
+                <strong>Less obstruction per route</strong>
+                <p>A successful program could reduce recorded events.</p>
+              </div>
+              <b>push raw totals down</b>
+            </div>
+            <p>To separate these opposing forces, we adjusted for <strong>route exposure</strong>. For each month, we counted every day that each ACE route was active. One route operating for 30 days equals 30 active-route-days; four routes operating for 30 days equal 120 active-route-days.</p>
+            <div className="exposure-equation" role="img" aria-label="ACE records per active-route-day equals monthly ACE records divided by active-route-days">
+              <span>ACE records per active-route-day</span>
+              <b>=</b>
+              <span className="fraction"><i>Monthly ACE records</i><i>Total active-route-days</i></span>
+            </div>
+            <p>This calculation puts months with different numbers of operating routes on a more comparable basis. It asks: <strong>for each route-day of ACE coverage, how many events were recorded?</strong> The primary trend uses all ACE records; whether those records were issued, exempted, or rejected is analyzed separately. The adjustment accounts for when routes joined the program and how many days they were active. It does not account for differences in route length, bus frequency, operating hours, or the number of camera-equipped trips, because those measures were not available in the dataset.</p>
+          </aside>
+
           <section id="findings" className="report-section">
             <SectionHead label="MAIN FINDINGS" title="Here’s what the data shows" />
             <div className="stat-grid">

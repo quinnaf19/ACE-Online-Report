@@ -21,3 +21,14 @@ test("report embeds the public map and exposes downloads", async () => {
   assert.match(page, /\/downloads\/monthly_summary\.csv/);
   assert.match(page, /\/downloads\/stop_summary\.csv/);
 });
+
+test("exposure note appears between the map and main findings", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const map = page.indexOf('<section id="map"');
+  const note = page.indexOf("NOTE BEFORE WE DIVE IN");
+  const findings = page.indexOf('<section id="findings"');
+  assert.ok(map < note && note < findings);
+  assert.match(page, /Monthly ACE records/);
+  assert.match(page, /Total active-route-days/);
+  assert.match(page, /four routes operating for 30 days equal 120 active-route-days/);
+});
