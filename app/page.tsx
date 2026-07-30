@@ -105,7 +105,7 @@ const recommendations: Recommendation[] = [
   {
     number: "01",
     title: "Expand ACE first where it can help the most riders",
-    text: "The next phase should fill important gaps beside routes already using ACE and focus on corridors where slow service, blocked lanes, and inaccessible stops affect many riders.",
+    text: "The next phase should fill important gaps alongside routes already using ACE and focus on corridors where slow service, blocked lanes, and inaccessible stops affect many riders.",
     bullets: [
       ["M1, M3, and M5", "Add coverage on the Fifth, Madison, and Sixth Avenue corridors. These routes would complement the M2, M4, and M7, while extending camera coverage to additional buses using some of Midtown’s slowest and busiest bus lanes."],
       ["M102 and M103", "Expand coverage on Third and Lexington Avenues alongside the M101. NYC DOT has reported daytime bus speeds of about 5 mph on Lexington Avenue, where deliveries and passenger pickups frequently block the bus lane."],
@@ -239,13 +239,13 @@ export default function Home() {
               <div className="prose">
                 <p>New York City buses depend on clear streets and accessible curbs. When a vehicle blocks a bus lane, double parks along a route, or occupies a bus stop, it can delay service for riders throughout the route.</p>
                 <p>Curb obstructions also create safety and accessibility risks. When a bus cannot pull fully to the curb, passengers may have to board or exit in the street and people in wheelchairs may be unable to board.</p>
-                <p>ACE was implemented as a program to address these growing issues, first implemented on select routes in June 2024. Since then, the program has expanded to encompass seventeen routes in Manhattan.</p>
+                <p>ACE was introduced on select routes in June 2024 to address these growing problems. Since then, the program has expanded to 17 Manhattan routes.</p>
                 <p>As ACE continues to expand to more routes, policymakers need to understand not only how many records the program generates, but also where those records are concentrated and what happens after an event is captured.</p>
-                <p>This report helps address those questions through temporal and geographic analyses of Manhattan’s ACE data. It contains both an analysis of ACE since its implementation, tracking both how the issue of curb obstruction has changed since implementation as well as how it is spread out across Manhattan.</p>
+                <p>This report addresses those questions through temporal and geographic analysis of Manhattan’s ACE data. It examines how recorded curb obstruction has changed since ACE began and where recorded events are concentrated across the borough.</p>
               </div>
               <aside className="explainer">
                 <p className="card-label">WHAT IS ACE?</p>
-                <p>Automated Camera Enforcement is a program where cameras mounted on buses document vehicles blocking bus lanes, bus stops, or travel lanes. A recorded event does not automatically become a violation: it may be issued, exempted, or rejected.</p>
+                <p>Automated Camera Enforcement is a program in which cameras mounted on buses document vehicles blocking bus lanes, bus stops, or travel lanes. A recorded event does not automatically become a violation: it may be issued, exempted, or rejected.</p>
                 <div className="fine-callout">
                   <p className="card-label">HOW FINES WORK</p>
                   <h3>$50 for a first violation, rising to $250</h3>
@@ -259,7 +259,7 @@ export default function Home() {
           <section id="study" className="report-section tinted">
             <SectionHead label="HOW WE STUDIED IT" title="We compiled every Manhattan ACE record" />
             <div className="lede">
-              <p>To understand how ACE enforcement is working across Manhattan, we reviewed 1,596,097 records from New York State Open Data collected between June 20, 2024 and June 15, 2026. We verified each record using its longitude and latitude and retained 1,566,130 records located within Manhattan for analysis.</p>
+              <p>To understand how ACE enforcement is working across Manhattan, we reviewed 1,596,097 records from New York State Open Data dated June 20, 2024, through June 15, 2026. We verified each record using its longitude and latitude and retained 1,566,130 records located within Manhattan for analysis.</p>
               <p>Our primary analysis treats every retained record as a recorded ACE event. We tracked how record counts changed as ACE expanded to more routes and identified the routes, neighborhoods, corridors, and intersections where recorded events were most concentrated.</p>
               <p>We analyzed enforcement outcomes separately, comparing records that resulted in issued violations with exemptions and rejections. This distinction provides a picture of where cameras recorded potential obstruction while preserving the difference between a recorded event and a confirmed violation.</p>
             </div>
@@ -309,7 +309,7 @@ export default function Home() {
           <aside className="analysis-note" aria-labelledby="analysis-note-title">
             <p className="section-label">NOTE BEFORE WE DIVE IN</p>
             <h2 id="analysis-note-title">Did recorded ACE events decline over time?</h2>
-            <p>Answering that question is not as simple as comparing one month’s total with another. During the study period, ACE expanded from four active Manhattan routes to seventeen. Every added route gave bus cameras more opportunities to record an event—even if obstruction on each operating route was becoming less frequent.</p>
+            <p>Answering that question is not as simple as comparing one month’s total with another. During the study period, ACE expanded from four active Manhattan routes to 17. Every added route gave bus cameras more opportunities to record an event—even if obstruction on each operating route was becoming less frequent.</p>
             <div className="exposure-model" aria-label="Two forces shape monthly ACE record totals">
               <div>
                 <span className="model-arrow up">↑</span>
@@ -394,7 +394,7 @@ export default function Home() {
             <blockquote><strong>Key finding</strong>Uptown neighborhoods and a small group of major corridors account for a large share of recorded enforcement activity.</blockquote>
           </Finding>
 
-          <Finding number="05" id="hotspots" title="West 125th Street anchors several of Manhattan’s largest hotspots" why="Intersection-level hotspots show where targeted curb level interventions should be focused.">
+          <Finding number="05" id="hotspots" title="West 125th Street anchors several of Manhattan’s largest hotspots" why="Intersection-level hotspots show where targeted curb-level interventions should be focused.">
             <div className="table-wrap">
               <table>
                 <caption>Leading canonical intersections</caption>
@@ -526,7 +526,7 @@ export default function Home() {
               <summary>Known limitations</summary>
               <ul>
                 <li><strong>Recorded events are not all confirmed violations:</strong> exemptions may capture permitted activity, while technical rejections may not be confirmable.</li>
-                <li><strong>Recorded events are not all obstruction:</strong> the dataset includes only events observed by an equipped bus while its camera system was operating.</li>
+                <li><strong>Recorded events do not capture all obstruction:</strong> the dataset includes only events observed by an equipped bus while its camera system was operating.</li>
                 <li><strong>Exposure is approximate:</strong> active-route-days account for implementation timing, but the data does not provide camera-equipped trips, operating hours, camera uptime, route miles, or comparable service-frequency denominators.</li>
                 <li><strong>Route totals are not standardized risk:</strong> older, longer, more frequent, and overlapping routes have more opportunities to generate records.</li>
                 <li><strong>Speed is a route-level snapshot:</strong> the May 2026 averages combine many operating conditions and cannot establish whether ACE caused buses to move faster or slower.</li>
