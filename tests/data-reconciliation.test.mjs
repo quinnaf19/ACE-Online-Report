@@ -91,7 +91,7 @@ test("primary record trend runs through May 2026 and outcomes remain separate", 
     results.stats.route_day_adjusted_records_mann_kendall.sen_slope_per_month,
     -7.2945328763049515,
   );
-  assert.match(page, /7\.29 fewer records per active-route-day each month/);
+  assert.match(page, /7\.29 fewer ACE records per active-route-day each month/);
   assert.match(page, /July 2024–May 2026/);
   assert.match(page, /Outcome trend tests end in March 2026/);
 });

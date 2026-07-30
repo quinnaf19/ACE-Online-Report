@@ -297,7 +297,7 @@ export default function Home() {
               <article><strong>68.3%</strong><span>of ACE records came from three routes</span></article>
             </div>
             <ol className="finding-list">
-              <li><strong>Expansion increased reach, but recorded events declined relative to route exposure.</strong> Raw monthly record totals showed no clear trend; records per active-route-day declined significantly.</li>
+              <li><strong>Recorded events declined after accounting for program expansion.</strong> ACE cameras recorded fewer events per active-route-day over time.</li>
               <li><strong>A growing share did not produce a violation.</strong> The combined non-issued rate rose an estimated 0.76 percentage points per month through March 2026.</li>
               <li><strong>Recorded events were concentrated.</strong> M101, M15-SBS, and M100 accounted for more than two-thirds of all records.</li>
               <li><strong>Uptown Manhattan contained many major hotspots.</strong> Washington Heights (South) led all NTAs, while several leading intersections were located along West 125th Street.</li>
@@ -308,19 +308,14 @@ export default function Home() {
             <span>THE ANALYSIS</span><h2>What we found</h2>
           </div>
 
-          <Finding number="01" id="trend" title="More routes produced more coverage—but ACE records declined after adjusting for exposure" why="ACE expanded from four active Manhattan routes at the beginning of the study period to 17 by May 2026. A rise in total records could therefore reflect more coverage rather than more recorded events on existing routes.">
+          <Finding number="01" id="trend" title="Recorded ACE events declined after accounting for program expansion" why="ACE expanded from four active Manhattan routes at the beginning of the study period to 17 by May 2026. To compare months with different levels of coverage, we measured records per active-route-day—accounting for how many routes were active and for how many days.">
             <figure>
-              <figcaption><strong>Total ACE records moved unevenly as the program expanded</strong><span>Monthly ACE records · July 2024–May 2026</span></figcaption>
-              <MiniColumns valueIndex={1} max={96000} />
-              <small className="source">Source: MBPO analysis of New York State Open Data (MTA). June 2024 excluded as a partial month.</small>
-            </figure>
-            <p>Raw monthly ACE record totals did not show a statistically detectable trend. After dividing monthly records by active-route-days, the median estimated change was <strong>7.29 fewer records per active-route-day each month.</strong></p>
-            <figure>
-              <figcaption><strong>Recorded events fell after accounting for route exposure</strong><span>ACE records per active-route-day · July 2024–May 2026</span></figcaption>
+              <figcaption><strong>Recorded events declined relative to the number of active routes and days</strong><span>ACE records per active-route-day · July 2024–May 2026</span></figcaption>
               <MiniColumns valueIndex={3} max={340} />
               <small className="source">June 2026 is excluded as a partial month. Active-route-days account for the number of routes operating and the number of days each was active.</small>
             </figure>
-            <blockquote><strong>Key finding</strong>Total monthly ACE records did not show a clear trend, but records per active-route-day declined significantly.</blockquote>
+            <p>Across the complete-month study period, the median estimated change was <strong>7.29 fewer ACE records per active-route-day each month.</strong></p>
+            <blockquote><strong>Key finding</strong>After accounting for how many routes were active and for how many days, recorded ACE events declined significantly over time.</blockquote>
           </Finding>
 
           <Finding number="02" id="nonissued" title="More than half of ACE records did not result in an issued violation" why="A recorded ACE event is not the same as an issued violation. Understanding exemptions and rejections is essential to evaluating how recorded activity moves through review.">

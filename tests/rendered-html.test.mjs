@@ -32,3 +32,10 @@ test("exposure note appears between the map and main findings", async () => {
   assert.match(page, /Total active-route-days/);
   assert.match(page, /four routes operating for 30 days equal 120 active-route-days/);
 });
+
+test("finding one presents only the expansion-adjusted trend chart", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  assert.match(page, /Recorded ACE events declined after accounting for program expansion/);
+  assert.match(page, /Recorded events declined relative to the number of active routes and days/);
+  assert.doesNotMatch(page, /Total ACE records moved unevenly|Monthly ACE records · July 2024–May 2026/);
+});
