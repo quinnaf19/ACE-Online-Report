@@ -227,6 +227,12 @@ export default function Home() {
                   </ul>
                 </article>
               </div>
+              <div className="outcome-chart" role="img" aria-label="48.9 percent issued, 32 percent exemptions, 11 percent technical rejections, 8.1 percent DMV rejections">
+                <span className="outcome issued-seg" style={{ width: "48.9%" }}>Issued 48.9%</span>
+                <span className="outcome exempt-seg" style={{ width: "32%" }}>Exempt 32.0%</span>
+                <span className="outcome tech-seg" style={{ width: "11%" }}>Technical 11.0%</span>
+                <span className="outcome dmv-seg" style={{ width: "8.1%" }}>DMV 8.1%</span>
+              </div>
             </div>
           </section>
 
@@ -253,12 +259,6 @@ export default function Home() {
               <article><strong>51.1%</strong><span>did not result in an issued violation</span></article>
               <article><strong>−4.41</strong><span>issued violations per active-route-day each month</span></article>
               <article><strong>70.1%</strong><span>of violations came from three routes</span></article>
-            </div>
-            <div className="outcome-chart" role="img" aria-label="48.9 percent issued, 32 percent exemptions, 11 percent technical rejections, 8.1 percent DMV rejections">
-              <span className="outcome issued-seg" style={{ width: "48.9%" }}>Issued 48.9%</span>
-              <span className="outcome exempt-seg" style={{ width: "32%" }}>Exempt 32.0%</span>
-              <span className="outcome tech-seg" style={{ width: "11%" }}>Technical 11.0%</span>
-              <span className="outcome dmv-seg" style={{ width: "8.1%" }}>DMV 8.1%</span>
             </div>
             <ol className="finding-list">
               <li><strong>Expansion increased reach, but not necessarily violations on an active route.</strong> Raw monthly totals showed no clear trend; exposure-adjusted violations declined significantly.</li>
