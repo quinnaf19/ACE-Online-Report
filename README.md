@@ -25,7 +25,7 @@ npm test
 
 - Main report component: `app/page.tsx`
 - Report styling: `app/globals.css`
-- Publication blueprint: `docs/ACE_Online_Report_Blueprint_and_Draft.md`
+- Original archival blueprint: `docs/ACE_Online_Report_Blueprint_and_Draft.md`
 - Downloadable summary files: `public/downloads/`
 - Audit and publication notes: `DEVELOPER_NOTES.md`
 

@@ -56,7 +56,7 @@ test("published headline and outcome totals reconcile to monthly analysis", asyn
   assert.match(page, /1\.57 million/);
 });
 
-test("published route, neighborhood, corridor, and stop leaders match downloads", async () => {
+test("published all-record route, neighborhood, corridor, and stop leaders match downloads", async () => {
   const page = await readFile(new URL("app/page.tsx", root), "utf8");
   const route = (await csv("route_summary.csv")).find((row) => row.route === "M101");
   const neighborhood = (await csv("neighborhood_summary.csv")).find(
@@ -68,14 +68,32 @@ test("published route, neighborhood, corridor, and stop leaders match downloads"
   const stop = (await csv("stop_summary.csv")).find(
     (row) => row.stop_canonical === "MALCOLM X BLVD / W 125 ST",
   );
-  assert.equal(Number(route.violations), 266710);
-  assert.equal(Number(neighborhood.violations), 85554);
-  assert.equal(Number(corridor.violations), 116494);
-  assert.equal(Number(stop.violations), 24144);
-  assert.match(page, /\["M101", 266710, "34\.9%"\]/);
-  assert.match(page, /\["Washington Heights \(South\)", 85554\]/);
-  assert.match(page, /\["Amsterdam Avenue", 116494\]/);
-  assert.match(page, /\["Malcolm X Blvd \/ W 125 St", 24144, "32\.7%"\]/);
+  assert.equal(Number(route.all_records), 540443);
+  assert.equal(Number(neighborhood.all_records), 167059);
+  assert.equal(Number(corridor.all_records), 242024);
+  assert.equal(Number(stop.all_records), 35893);
+  assert.match(page, /\["M101", 540443, "34\.5%"\]/);
+  assert.match(page, /\["Washington Heights \(South\)", 167059\]/);
+  assert.match(page, /\["Amsterdam Avenue", 242024\]/);
+  assert.match(page, /\["Malcolm X Blvd \/ W 125 St", 35893, "32\.7%"\]/);
+});
+
+test("primary record trend runs through May 2026 and outcomes remain separate", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const rows = await csv("monthly_summary.csv");
+  const results = JSON.parse(
+    await readFile(new URL("public/downloads/analysis_results.json", root), "utf8"),
+  );
+  const may = rows.find((row) => row.month === "2026-05");
+  assert.equal(Number(may.all_records), 33843);
+  assert.equal(Number(may.active_routes), 17);
+  assert.equal(
+    results.stats.route_day_adjusted_records_mann_kendall.sen_slope_per_month,
+    -7.2945328763049515,
+  );
+  assert.match(page, /7\.29 fewer records per active-route-day each month/);
+  assert.match(page, /July 2024–May 2026/);
+  assert.match(page, /Outcome trend tests end in March 2026/);
 });
 
 test("publication language contains no stale draft or source labels", async () => {
@@ -83,4 +101,5 @@ test("publication language contains no stale draft or source labels", async () =
   assert.doesNotMatch(page, /Draft for office review|NYC Open Data/);
   assert.match(page, /New York State Open Data \(MTA\)/);
   assert.match(page, /June 20, 2024–June 15, 2026/);
+  assert.doesNotMatch(page, /issued violations only|seven in ten|24,144 issued violations/);
 });

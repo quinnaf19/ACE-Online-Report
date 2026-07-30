@@ -1039,3 +1039,9 @@ Before making major design or content changes that depart from the supplied blue
 6. **Resolve the map/workbook hotspot discrepancy before publication.**
 7. **Keep recommendations clearly labeled as tentative until MBPO review.**
 8. **Separate the analytical end date from current program context.** The dataset ends June 15, 2026; the MTA’s current route count may be newer.
+> **Archival planning document:** This blueprint preserves the report’s
+> original issued-violation analytical framing. The implemented online report
+> was revised in July 2026 to use all 1,566,130 retained ACE records as its
+> primary measure, with enforcement outcomes analyzed separately. Current
+> figures, methodology, and language are maintained in the live report and its
+> downloadable summaries.

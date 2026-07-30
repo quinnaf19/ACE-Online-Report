@@ -3,70 +3,73 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Keeping Manhattan Moving | Manhattan ACE Report",
   description:
-    "What 1.57 million Automated Camera Enforcement records reveal about Manhattan bus-lane obstruction, enforcement outcomes, and where attention is needed next.",
+    "What 1.57 million Automated Camera Enforcement records reveal about recorded curb obstruction, enforcement outcomes, and where attention is needed next.",
 };
 
 const monthly = [
-  ["Jul ’24", 9754, 4, 78.7, 43.9, 9754],
-  ["Aug", 9716, 4, 78.4, 45.6, 9716],
-  ["Sep", 17436, 8, 126.3, 40.8, 8931],
-  ["Oct", 50843, 8, 205.0, 39.3, 13507],
-  ["Nov", 40609, 8, 169.2, 44.1, 11012],
-  ["Dec", 38085, 8, 153.6, 40.7, 10510],
-  ["Jan ’25", 36393, 8, 146.7, 44.1, 10292],
-  ["Feb", 28126, 8, 125.6, 45.9, 9100],
-  ["Mar", 35853, 8, 144.6, 46.2, 11122],
-  ["Apr", 37703, 8, 157.1, 46.3, 11581],
-  ["May", 41449, 12, 145.9, 47.5, 11313],
-  ["Jun", 49902, 12, 138.6, 46.3, 10442],
-  ["Jul", 51829, 12, 139.3, 45.8, 10371],
-  ["Aug", 47734, 12, 128.3, 46.6, 9932],
-  ["Sep", 45643, 12, 126.8, 50.3, 10521],
-  ["Oct", 43367, 14, 105.8, 53.9, 8900],
-  ["Nov", 36613, 14, 87.2, 56.2, 7481],
-  ["Dec", 34305, 15, 74.9, 57.5, 7062],
-  ["Jan ’26", 33352, 15, 71.7, 57.8, 8482],
-  ["Feb", 37371, 15, 89.0, 54.3, 10265],
-  ["Mar", 34280, 15, 73.7, 52.3, 7168],
+  ["Jul ’24", 17379, 4, 140.2, 43.9, 9754],
+  ["Aug", 17857, 4, 144.0, 45.6, 9716],
+  ["Sep", 29465, 8, 213.5, 40.8, 8931],
+  ["Oct", 83714, 8, 337.6, 39.3, 13507],
+  ["Nov", 72707, 8, 302.9, 44.1, 11012],
+  ["Dec", 64178, 8, 258.8, 40.7, 10510],
+  ["Jan ’25", 65138, 8, 262.7, 44.1, 10292],
+  ["Feb", 51961, 8, 232.0, 45.9, 9100],
+  ["Mar", 66678, 8, 268.9, 46.2, 11122],
+  ["Apr", 70231, 8, 292.6, 46.3, 11581],
+  ["May", 78975, 12, 278.1, 47.5, 11313],
+  ["Jun", 92883, 12, 258.0, 46.3, 10442],
+  ["Jul", 95695, 12, 257.2, 45.8, 10371],
+  ["Aug", 89351, 12, 240.2, 46.6, 9932],
+  ["Sep", 91832, 12, 255.1, 50.3, 10521],
+  ["Oct", 94140, 14, 229.6, 53.9, 8900],
+  ["Nov", 83686, 14, 199.3, 56.2, 7481],
+  ["Dec", 80796, 15, 176.4, 57.5, 7062],
+  ["Jan ’26", 79094, 15, 170.1, 57.8, 8482],
+  ["Feb", 81787, 15, 194.7, 54.3, 10265],
+  ["Mar", 71855, 15, 154.5, 52.3, 7168],
+  ["Apr", 35660, 16, 76.2, 94.1, 0],
+  ["May", 33843, 17, 65.5, 100.0, 0],
 ] as const;
+const outcomeMonthly = monthly.slice(0, 21);
 
 const routes = [
-  ["M101", 266710, "34.9%"],
-  ["M15-SBS", 170030, "22.2%"],
-  ["M100", 99777, "13.0%"],
-  ["M60-SBS", 58464, "7.6%"],
-  ["M86-SBS", 32338, "4.2%"],
-  ["M79-SBS", 29653, "3.9%"],
-  ["M2", 28756, "3.8%"],
+  ["M101", 540443, "34.5%"],
+  ["M15-SBS", 346400, "22.1%"],
+  ["M100", 182746, "11.7%"],
+  ["M60-SBS", 101885, "6.5%"],
+  ["M2", 69355, "4.4%"],
+  ["M86-SBS", 68573, "4.4%"],
+  ["M79-SBS", 60045, "3.8%"],
 ] as const;
 
 const neighborhoods = [
-  ["Washington Heights (South)", 85554],
-  ["Harlem (South)", 73664],
-  ["Washington Heights (North)", 61361],
-  ["East Harlem (North)", 57788],
-  ["Upper East Side–Yorkville", 48731],
-  ["Upper East Side–Lenox Hill–Roosevelt Island", 45435],
-  ["Upper East Side–Carnegie Hill", 39345],
+  ["Washington Heights (South)", 167059],
+  ["East Harlem (North)", 116294],
+  ["Washington Heights (North)", 114881],
+  ["Harlem (South)", 114106],
+  ["Upper East Side–Yorkville", 101732],
+  ["Upper East Side–Carnegie Hill", 83883],
+  ["Upper East Side–Lenox Hill–Roosevelt Island", 83054],
 ] as const;
 
 const corridors = [
-  ["Amsterdam Avenue", 116494],
-  ["Broadway", 87971],
-  ["Third Avenue", 74495],
-  ["West 125th Street", 70910],
-  ["First Avenue", 58005],
-  ["Second Avenue", 56238],
+  ["Amsterdam Avenue", 242024],
+  ["Broadway", 176846],
+  ["Third Avenue", 161240],
+  ["First Avenue", 117840],
+  ["Second Avenue", 116405],
+  ["West 125th Street", 110178],
 ] as const;
 
 const stops = [
-  ["Malcolm X Blvd / W 125 St", 24144, "32.7%"],
-  ["Saint Nicholas Ave / W 125 St", 17012, "34.8%"],
-  ["Catherine St / Madison St", 13112, "51.8%"],
-  ["Second Ave / E 78 St", 10490, "42.2%"],
-  ["Second Ave / E 125 St", 10254, "47.1%"],
-  ["Broadway / W 178 St", 10238, "42.3%"],
-  ["Amsterdam Ave / W 161 St", 10215, "49.0%"],
+  ["Malcolm X Blvd / W 125 St", 35893, "32.7%"],
+  ["Catherine St / Madison St", 27219, "51.8%"],
+  ["Saint Nicholas Ave / W 125 St", 26097, "34.8%"],
+  ["Amsterdam Ave / W 161 St", 20023, "49.0%"],
+  ["Second Ave / E 125 St", 19372, "47.1%"],
+  ["Third Ave / E 86 St", 18700, "53.5%"],
+  ["Second Ave / E 78 St", 18143, "42.2%"],
 ] as const;
 
 const recommendations = [
@@ -106,14 +109,18 @@ function MiniColumns({
   valueIndex,
   max,
   percent = false,
+  data = monthly,
+  ariaLabel = "Monthly trend from July 2024 through May 2026",
 }: {
   valueIndex: number;
   max: number;
   percent?: boolean;
+  data?: readonly (readonly [string, number, number, number, number, number])[];
+  ariaLabel?: string;
 }) {
   return (
-    <div className="column-chart" role="img" aria-label="Monthly trend from July 2024 through March 2026">
-      {monthly.map((row) => {
+    <div className="column-chart" role="img" aria-label={ariaLabel}>
+      {data.map((row) => {
         const value = Number(row[valueIndex]);
         return (
           <div className="column-item" key={`${row[0]}-${valueIndex}`}>
@@ -175,7 +182,7 @@ export default function Home() {
             <p className="kicker">Manhattan Borough President&apos;s Office</p>
             <h1>Keeping Manhattan Moving</h1>
             <p className="standfirst">
-              What 1.57 million camera-enforcement records reveal about bus-lane obstruction,
+              What 1.57 million camera-enforcement records reveal about recorded curb obstruction,
               enforcement outcomes, and where attention is needed next.
             </p>
             <p className="publine">Data: New York State Open Data (MTA), June 20, 2024–June 15, 2026</p>
@@ -208,8 +215,8 @@ export default function Home() {
             <SectionHead label="HOW WE STUDIED IT" title="We compiled every Manhattan ACE record" />
             <div className="lede">
               <p>To understand how ACE enforcement is working across Manhattan, we reviewed 1,596,097 records from New York State Open Data collected between June 20, 2024 and June 15, 2026. We verified each record using its longitude and latitude and retained 1,566,130 records located within Manhattan for analysis.</p>
-              <p>We tracked how issued violations and non-issued records changed as ACE expanded to more routes, compared outcomes across neighborhoods, and identified the corridors and intersections where violations were most concentrated.</p>
-              <p>The result is a detailed picture of how ACE enforcement activity and outcomes are distributed across Manhattan—showing not only when and where violations are issued, but also where recorded events are most likely to leave the system without becoming violations.</p>
+              <p>Our primary analysis treats every retained record as a recorded ACE event. We tracked how record counts changed as ACE expanded to more routes and identified the routes, neighborhoods, corridors, and intersections where recorded events were most concentrated.</p>
+              <p>We analyzed enforcement outcomes separately, comparing records that resulted in issued violations with exemptions and rejections. This distinction provides a picture of where cameras recorded potential obstruction while preserving the difference between a recorded event and a confirmed violation.</p>
             </div>
             <div className="outcome-guide">
               <p className="card-label">FROM CAMERA RECORD TO FINAL OUTCOME</p>
@@ -239,34 +246,34 @@ export default function Home() {
           </section>
 
           <section id="map" className="report-section map-section">
-            <SectionHead label="EXPLORE THE DATA" title="Find an ACE hotspot" intro="Filter by route or neighborhood, search for a stop, change the minimum violation threshold, and zoom from the borough level to individual hotspots." />
+            <SectionHead label="EXPLORE THE DATA" title="Find an ACE hotspot" intro="Explore all recorded ACE events, filter by final outcome, route, or neighborhood, search for a stop, and zoom from the borough level to individual hotspots." />
             <div className="map-frame">
               <iframe
                 src="https://ace-map.quinnaf19.workers.dev/"
-                title="Interactive Manhattan ACE Violation Explorer"
+                title="Interactive Manhattan ACE Record Explorer"
                 loading="lazy"
                 allowFullScreen
               />
             </div>
             <div className="map-actions">
               <a className="button" href="https://ace-map.quinnaf19.workers.dev/">Open map in a new tab ↗</a>
-              <p>The map displays issued violations only. Counts are grouped by route, standardized stop, and neighborhood.</p>
+              <p>The map displays all ACE records by default. Use the outcome filter to isolate issued, non-issued, exempt, technical-rejection, or DMV-rejection records.</p>
             </div>
           </section>
 
           <section id="findings" className="report-section">
             <SectionHead label="MAIN FINDINGS" title="Here’s what the data shows" />
             <div className="stat-grid">
-              <article><strong>765,297</strong><span>issued violations</span></article>
+              <article><strong>1,566,130</strong><span>recorded ACE events</span></article>
               <article><strong>51.1%</strong><span>did not result in an issued violation</span></article>
-              <article><strong>−4.41</strong><span>issued violations per active-route-day each month</span></article>
-              <article><strong>70.1%</strong><span>of violations came from three routes</span></article>
+              <article><strong>−7.29</strong><span>ACE records per active-route-day each month</span></article>
+              <article><strong>68.3%</strong><span>of ACE records came from three routes</span></article>
             </div>
             <ol className="finding-list">
-              <li><strong>Expansion increased reach, but not necessarily violations on an active route.</strong> Raw monthly totals showed no clear trend; exposure-adjusted violations declined significantly.</li>
+              <li><strong>Expansion increased reach, but recorded events declined relative to route exposure.</strong> Raw monthly record totals showed no clear trend; records per active-route-day declined significantly.</li>
               <li><strong>A growing share did not produce a violation.</strong> The combined non-issued rate rose an estimated 0.76 percentage points per month through March 2026.</li>
-              <li><strong>Issued violations were concentrated.</strong> M101, M15-SBS, and M100 accounted for seven in ten.</li>
-              <li><strong>Uptown Manhattan contained many major hotspots.</strong> Washington Heights (South) led all NTAs, while West 125th Street contained several leading intersections.</li>
+              <li><strong>Recorded events were concentrated.</strong> M101, M15-SBS, and M100 accounted for more than two-thirds of all records.</li>
+              <li><strong>Uptown Manhattan contained many major hotspots.</strong> Washington Heights (South) led all NTAs, while several leading intersections were located along West 125th Street.</li>
             </ol>
           </section>
 
@@ -274,48 +281,48 @@ export default function Home() {
             <span>THE ANALYSIS</span><h2>What we found</h2>
           </div>
 
-          <Finding number="01" id="trend" title="More routes produced more coverage—but violations declined after adjusting for exposure" why="ACE expanded from four active Manhattan routes at the beginning of the study period to 15 by March 2026. A rise in total violations could therefore reflect more coverage rather than more violations on existing routes.">
+          <Finding number="01" id="trend" title="More routes produced more coverage—but ACE records declined after adjusting for exposure" why="ACE expanded from four active Manhattan routes at the beginning of the study period to 17 by May 2026. A rise in total records could therefore reflect more coverage rather than more recorded events on existing routes.">
             <figure>
-              <figcaption><strong>Total violations moved unevenly as ACE expanded</strong><span>Monthly issued violations · July 2024–March 2026</span></figcaption>
-              <MiniColumns valueIndex={1} max={52000} />
+              <figcaption><strong>Total ACE records moved unevenly as the program expanded</strong><span>Monthly ACE records · July 2024–May 2026</span></figcaption>
+              <MiniColumns valueIndex={1} max={96000} />
               <small className="source">Source: MBPO analysis of New York State Open Data (MTA). June 2024 excluded as a partial month.</small>
             </figure>
-            <p>After dividing monthly violations by active-route-days, the pattern changed. The median estimated change was <strong>4.41 fewer issued violations per active-route-day each month.</strong></p>
+            <p>Raw monthly ACE record totals did not show a statistically detectable trend. After dividing monthly records by active-route-days, the median estimated change was <strong>7.29 fewer records per active-route-day each month.</strong></p>
             <figure>
-              <figcaption><strong>Violations fell after accounting for route exposure</strong><span>Issued violations per active-route-day</span></figcaption>
-              <MiniColumns valueIndex={3} max={210} />
-              <small className="source">Primary trend window ends March 2026 because later outcomes may still be maturing.</small>
+              <figcaption><strong>Recorded events fell after accounting for route exposure</strong><span>ACE records per active-route-day · July 2024–May 2026</span></figcaption>
+              <MiniColumns valueIndex={3} max={340} />
+              <small className="source">June 2026 is excluded as a partial month. Active-route-days account for the number of routes operating and the number of days each was active.</small>
             </figure>
-            <blockquote><strong>Key finding</strong>Total monthly violations did not show a clear trend, but violations declined significantly after adjusting for route exposure.</blockquote>
+            <blockquote><strong>Key finding</strong>Total monthly ACE records did not show a clear trend, but records per active-route-day declined significantly.</blockquote>
           </Finding>
 
-          <Finding number="02" id="nonissued" title="The non-issued share rose even as route-adjusted violations fell" why="A camera record is not the same as an issued violation. Understanding exemptions and rejections is essential to evaluating how recorded activity moves through review.">
+          <Finding number="02" id="nonissued" title="More than half of ACE records did not result in an issued violation" why="A recorded ACE event is not the same as an issued violation. Understanding exemptions and rejections is essential to evaluating how recorded activity moves through review.">
             <p>Of 1,566,130 records, 765,297 resulted in an issued violation. The remaining <strong>800,833 records—51.1%—did not</strong>.</p>
             <figure>
               <figcaption><strong>The non-issued share rose through March 2026</strong><span>Monthly combined exemption and rejection rate</span></figcaption>
-              <MiniColumns valueIndex={4} max={65} percent />
+              <MiniColumns valueIndex={4} max={65} percent data={outcomeMonthly} ariaLabel="Monthly non-issued rate from July 2024 through March 2026" />
               <small className="source">July 2024–March 2026. Sen slope: +0.76 percentage points per month; p &lt; 0.001.</small>
             </figure>
             <blockquote><strong>Key finding</strong>More than half of all Manhattan ACE records did not result in an issued violation, and that share rose significantly from 43.9% in July 2024 to 52.3% in March 2026.</blockquote>
           </Finding>
 
-          <Finding number="03" id="routes" title="Three routes generated seven in ten Manhattan violations" why="Route totals reveal where activity is concentrated, but must be read alongside activation dates, length, frequency, and camera-equipped service.">
+          <Finding number="03" id="routes" title="Three routes generated more than two-thirds of Manhattan ACE records" why="Route totals reveal where recorded activity is concentrated, but must be read alongside activation dates, length, frequency, and camera-equipped service.">
             <div className="chart-card">
-              <h3>M101 alone accounted for more than one-third</h3>
-              <p>Issued violations by route · Full study period</p>
-              <BarChart rows={routes} max={266710} />
+              <h3>M101 alone accounted for more than one-third of all records</h3>
+              <p>ACE records by route · Full study period</p>
+              <BarChart rows={routes} max={540443} />
               <small className="source">Route labels ending in SBS are presented in their public-facing Select Bus Service form.</small>
             </div>
-            <p>These totals identify enforcement concentration, however, it should be acknowledged that longer and more frequent routes create more opportunities for bus cameras to encounter obstruction.</p>
-            <blockquote><strong>Key finding</strong>M101, M15-SBS, and M100 generated seven in ten issued violations in the Manhattan dataset.</blockquote>
+            <p>These totals identify where ACE cameras recorded the most events. Longer and more frequent routes create more opportunities for bus cameras to encounter and record potential obstruction.</p>
+            <blockquote><strong>Key finding</strong>M101, M15-SBS, and M100 generated 68.3% of all Manhattan ACE records.</blockquote>
           </Finding>
 
           <Finding number="04" id="geography" title="The geography of ACE enforcement is highly concentrated" why="Boroughwide totals conceal the streets and communities where obstruction repeatedly intersects with bus service.">
             <div className="split-charts">
-              <div className="chart-card"><h3>Top neighborhoods</h3><p>Issued violations by NTA</p><BarChart rows={neighborhoods} max={85554} /></div>
-              <div className="chart-card"><h3>Top corridors</h3><p>Issued violations by standardized corridor label</p><BarChart rows={corridors} max={116494} /></div>
+              <div className="chart-card"><h3>Top neighborhoods</h3><p>ACE records by NTA</p><BarChart rows={neighborhoods} max={167059} /></div>
+              <div className="chart-card"><h3>Top corridors</h3><p>ACE records by standardized corridor label</p><BarChart rows={corridors} max={242024} /></div>
             </div>
-            <p>Washington Heights (South) recorded 85,554 issued violations, the most of any NTA. Amsterdam Avenue led corridor labels with 116,494. Amsterdam Avenue, Broadway, Third Avenue, and West 125th Street together accounted for approximately <strong>45.7%</strong> of issued violations.</p>
+            <p>Washington Heights (South) contained 167,059 ACE records, the most of any NTA. Amsterdam Avenue led corridor labels with 242,024 records. Amsterdam Avenue, Broadway, Third Avenue, and First Avenue together accounted for approximately <strong>44.6%</strong> of all records.</p>
             <blockquote><strong>Key finding</strong>Uptown neighborhoods and a small group of major corridors account for a large share of recorded enforcement activity.</blockquote>
           </Finding>
 
@@ -323,11 +330,11 @@ export default function Home() {
             <div className="table-wrap">
               <table>
                 <caption>Leading canonical intersections</caption>
-                <thead><tr><th>Intersection</th><th>Issued</th><th>Non-issued rate</th></tr></thead>
+                <thead><tr><th>Intersection</th><th>ACE records</th><th>Non-issued rate</th></tr></thead>
                 <tbody>{stops.map((row) => <tr key={row[0]}><td>{row[0]}</td><td>{row[1].toLocaleString()}</td><td>{row[2]}</td></tr>)}</tbody>
               </table>
             </div>
-            <p>Malcolm X Boulevard and West 125th Street was the leading canonical intersection, with <strong>24,144 issued violations</strong>. Several other leading hotspots were located along West 125th Street.</p>
+            <p>Malcolm X Boulevard and West 125th Street was the leading canonical intersection, with <strong>35,893 ACE records</strong>. Several other leading hotspots were located along West 125th Street.</p>
             <blockquote><strong>Key finding</strong>The 125th Street cluster is a leading hotspot and strong candidate for further coordinated review.</blockquote>
           </Finding>
 
@@ -362,17 +369,23 @@ export default function Home() {
               <p>Exact longitude and latitude were tested against NYC Department of City Planning 2020 Census Tracts. NTA names were taken from the containing tract. NTAs are statistical approximations of neighborhoods.</p>
             </details>
             <details>
+              <summary>Primary record measure and enforcement outcomes</summary>
+              <p>The primary findings count every retained ACE record, regardless of its final enforcement outcome. These records identify events captured by bus-mounted cameras, but they should not all be interpreted as confirmed violations or as a complete count of curb obstruction.</p>
+              <p>Outcome analysis is presented separately. “Issued” means a violation was confirmed and issued. “Non-issued” combines exemptions, technical rejections, and records that could not be issued because driver or vehicle information was missing.</p>
+            </details>
+            <details>
               <summary>Stops, corridors, and hotspot aggregation</summary>
               <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing the same standardized intersection name across routes and source-coordinate variants.</p>
               <p>The embedded map combines matching records into one canonical intersection marker by default. Route and neighborhood filters recalculate the total using only records in the selected subset.</p>
             </details>
             <details>
               <summary>Route exposure and statistical methods</summary>
-              <p>Monthly active-route-days were calculated from implementation dates. Primary temporal tests use complete months from July 2024 through March 2026. Mann–Kendall tests assessed consistent direction; Sen slopes estimated median monthly change. A weighted regression tested the combined non-issued share.</p>
+              <p>Monthly active-route-days were calculated from implementation dates. Primary ACE-record trend tests use complete months from July 2024 through May 2026; June 2024 and June 2026 are excluded because they are partial months. Mann–Kendall tests assessed consistent direction, and Sen slopes estimated median monthly change.</p>
+              <p>Outcome trend tests end in March 2026 because the sharp drop in issued outcomes after that point indicates that recent records may not have completed review. A weighted regression separately tested the combined non-issued share.</p>
             </details>
             <details>
               <summary>Known limitations</summary>
-              <p>The dataset measures enforcement records, not all obstruction. It lacks bus-trip and camera-uptime denominators. Recent outcomes may be incomplete. Route totals reflect age, length, frequency, and overlap. The design is descriptive and does not establish causality.</p>
+              <p>The dataset measures events recorded by ACE cameras, not every instance of curb obstruction. Exemptions may capture permitted activity, and technical rejections may not be confirmable. The data lacks bus-trip and camera-uptime denominators. Recent outcomes may be incomplete. Route totals reflect age, length, frequency, and overlap. The design is descriptive and does not establish causality.</p>
             </details>
             <div className="sources">
               <h3>Primary sources</h3>
@@ -394,6 +407,7 @@ export default function Home() {
                 ["Neighborhood summary", "/downloads/neighborhood_summary.csv"],
                 ["Corridor summary", "/downloads/corridor_summary.csv"],
                 ["Canonical stop summary", "/downloads/stop_summary.csv"],
+                ["Statistical results", "/downloads/analysis_results.json"],
                 ["Analysis methods", "/downloads/analyze_ace.py"],
               ].map((file) => <a key={file[0]} href={file[1]} download><span>CSV / CODE</span><strong>{file[0]}</strong><b>↓</b></a>)}
             </div>

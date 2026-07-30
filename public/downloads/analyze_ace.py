@@ -145,7 +145,7 @@ def main():
     clean["date"]=clean.occurrence.dt.date.astype(str)
     clean["is_violation"]=clean.status.isin(ISSUED).astype(int); clean["is_exempt"]=clean.status.isin(EXEMPT).astype(int)
     clean["is_technical"]=clean.status.isin(TECH).astype(int); clean["is_dmv"]=clean.status.isin(DMV).astype(int); clean["is_nonissued"]=(1-clean.is_violation)
-    # Standardized physical stop groups: rounded to 4 decimals (~8-11m), then canonical label by modal stop name.
+    # Standardized intersection labels combine records across routes and source coordinates.
     clean["lon_4"]=clean.longitude.round(4); clean["lat_4"]=clean.latitude.round(4)
     clean["stop_canonical"]=clean.stop_name_standardized.map(lambda s:" / ".join(sorted([z.strip() for z in s.split("/")])) if "/" in s else s)
     clean["corridor"]=clean.stop_name_standardized.str.split("/",n=1).str[0].str.strip()
@@ -177,37 +177,44 @@ def main():
     monthly["partial_month"]=[(data_min.normalize()>ms) or (data_max.normalize()<ms+pd.offsets.MonthEnd(0)) for ms in month_starts]
     # Constant cohort: routes implemented by end of the first observed month and present in data.
     cohort=sorted(set(impl.loc[impl.implementation_date<=month_starts.min()+pd.offsets.MonthEnd(0),"route"]) & routes_data)
-    cm=clean[clean.route.isin(cohort)].groupby("month").is_violation.sum().reindex(monthly.month,fill_value=0)
-    monthly["constant_cohort_violations"]=cm.values; monthly["constant_cohort_routes"]=len(cohort)
+    cohort_rows=clean[clean.route.isin(cohort)].groupby("month")
+    cm=cohort_rows.is_violation.sum().reindex(monthly.month,fill_value=0)
+    cr=cohort_rows.size().reindex(monthly.month,fill_value=0)
+    monthly["constant_cohort_violations"]=cm.values
+    monthly["constant_cohort_records"]=cr.values
+    monthly["constant_cohort_routes"]=len(cohort)
 
     usable_all=monthly[~monthly.partial_month & (monthly.active_route_days>0)].copy()
-    usable=usable_all[usable_all.month<="2026-03"].copy()
+    usable_records=usable_all[usable_all.month<="2026-05"].copy()
+    usable_outcomes=usable_all[usable_all.month<="2026-03"].copy()
     stats={
-      "total_monthly_violations_mann_kendall":mann_kendall(usable.violations),
-      "route_day_adjusted_violations_mann_kendall":mann_kendall(usable.violations_per_active_route_day),
-      "constant_cohort_violations_mann_kendall":mann_kendall(usable.constant_cohort_violations),
-      "combined_exempt_reject_rate_mann_kendall":mann_kendall(usable.exempt_reject_rate),
-      "combined_exempt_reject_rate_weighted_ols":ols_trend(usable.exempt_reject_rate,usable.all_records),
+      "total_monthly_records_mann_kendall":mann_kendall(usable_records.all_records),
+      "route_day_adjusted_records_mann_kendall":mann_kendall(usable_records.records_per_active_route_day),
+      "constant_cohort_records_mann_kendall":mann_kendall(usable_records.constant_cohort_records),
+      "outcome_window_total_monthly_violations_mann_kendall":mann_kendall(usable_outcomes.violations),
+      "outcome_window_route_day_adjusted_violations_mann_kendall":mann_kendall(usable_outcomes.violations_per_active_route_day),
+      "combined_exempt_reject_rate_mann_kendall":mann_kendall(usable_outcomes.exempt_reject_rate),
+      "combined_exempt_reject_rate_weighted_ols":ols_trend(usable_outcomes.exempt_reject_rate,usable_outcomes.all_records),
       "sensitivity_all_complete_months_total_violations_mann_kendall":mann_kendall(usable_all.violations),
       "sensitivity_all_complete_months_route_day_adjusted_mann_kendall":mann_kendall(usable_all.violations_per_active_route_day),
       "sensitivity_all_complete_months_nonissued_rate_mann_kendall":mann_kendall(usable_all.exempt_reject_rate),
-      "notes":"Primary trend tests exclude first/last partial calendar months and end at 2026-03 because April-June show 2,093/0/0 issued violations despite continued non-issued records, consistent with outcome maturation/right censoring. Sensitivity tests include every complete month. Mann-Kendall is nonparametric; Sen slope is median monthly change. Weighted OLS on monthly non-issued share uses monthly record totals as weights and a normal approximation for p. Descriptive, not causal."
+      "notes":"Primary ACE-record trend tests exclude the first and last partial calendar months and cover July 2024 through May 2026. Outcome tests end at March 2026 because April-June show 2,093/0/0 issued violations despite continued non-issued records, consistent with outcome maturation/right censoring. Mann-Kendall is nonparametric; Sen slope is median monthly change. Weighted OLS on monthly non-issued share uses monthly record totals as weights and a normal approximation for p. Descriptive, not causal."
     }
 
-    neighborhood=summary_group(clean,"neighborhood").sort_values("violations",ascending=False)
-    route=summary_group(clean,"route").sort_values("violations",ascending=False)
-    stop=summary_group(clean,"stop_canonical").sort_values("violations",ascending=False)
+    neighborhood=summary_group(clean,"neighborhood").sort_values("all_records",ascending=False)
+    route=summary_group(clean,"route").sort_values("all_records",ascending=False)
+    stop=summary_group(clean,"stop_canonical").sort_values("all_records",ascending=False)
     stop=stop.merge(clean.groupby("stop_canonical",as_index=False).agg(longitude=("longitude","median"),latitude=("latitude","median")),on="stop_canonical")
-    corridor=summary_group(clean,"corridor").sort_values("violations",ascending=False)
-    route_stop=summary_group(clean,["route","stop_canonical"]).sort_values("violations",ascending=False)
+    corridor=summary_group(clean,"corridor").sort_values("all_records",ascending=False)
+    route_stop=summary_group(clean,["route","stop_canonical"]).sort_values("all_records",ascending=False)
     route_stop=route_stop.merge(clean.groupby(["route","stop_canonical"],as_index=False).agg(longitude=("longitude","median"),latitude=("latitude","median")),on=["route","stop_canonical"])
     # Rate rankings require at least 1,000 records (pre-specified to suppress tiny denominators).
     threshold=1000
     hotspots={
-      "top_violation_neighborhoods":neighborhood.head(15).to_dict("records"),
-      "top_violation_routes":route.head(15).to_dict("records"),
-      "top_violation_stops":stop.head(25).to_dict("records"),
-      "top_violation_corridors":corridor.head(20).to_dict("records"),
+      "top_record_neighborhoods":neighborhood.head(15).to_dict("records"),
+      "top_record_routes":route.head(15).to_dict("records"),
+      "top_record_stops":stop.head(25).to_dict("records"),
+      "top_record_corridors":corridor.head(20).to_dict("records"),
       "top_exempt_reject_rate_neighborhoods":neighborhood[neighborhood.all_records>=threshold].sort_values("exempt_reject_rate",ascending=False).head(15).to_dict("records"),
       "top_exempt_reject_rate_routes":route[route.all_records>=threshold].sort_values("exempt_reject_rate",ascending=False).head(15).to_dict("records"),
       "top_exempt_reject_rate_stops":stop[stop.all_records>=threshold].sort_values("exempt_reject_rate",ascending=False).head(25).to_dict("records"),

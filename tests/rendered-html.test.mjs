@@ -9,7 +9,7 @@ test("report includes required public-facing sections", async () => {
   assert.match(page, /Keeping Manhattan/);
   assert.match(page, /Why It Matters/);
   assert.match(page, /How We Studied It/);
-  assert.match(page, /Interactive Manhattan ACE Violation Explorer/);
+  assert.match(page, /Interactive Manhattan ACE Record Explorer/);
   assert.match(page, /Data & Methodology/);
   assert.match(page, /Recommendations/);
   assert.doesNotMatch(page, /codex-preview|SkeletonPreview/);
