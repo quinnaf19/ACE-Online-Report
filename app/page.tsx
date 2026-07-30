@@ -186,8 +186,10 @@ export default function Home() {
             <div className="two-col">
               <div className="prose">
                 <p>New York City buses depend on clear streets and accessible curbs. When a vehicle blocks a bus lane, double parks along a route, or occupies a bus stop, it can delay service for riders throughout the route.</p>
-                <p>Curb obstructions also create safety and accessibility risks. When a bus cannot pull fully to the curb, passengers may have to board or exit in the street.</p>
+                <p>Curb obstructions also create safety and accessibility risks. When a bus cannot pull fully to the curb, passengers may have to board or exit in the street and people in wheelchairs may be unable to board.</p>
+                <p>ACE was implemented as a program to address these growing issues, first implemented on select routes in June 2024. Since then, the program has expanded to encompass seventeen routes in Manhattan.</p>
                 <p>As ACE continues to expand to more routes, policymakers need to understand not only how many records the program generates, but also where those records are concentrated and what happens after an event is captured.</p>
+                <p>This report helps address those questions through temporal and geographic analyses of Manhattan’s ACE data. It contains both an analysis of ACE since its implementation, tracking both how the issue of curb obstruction has changed since implementation as well as how it is spread out across Manhattan.</p>
               </div>
               <aside className="explainer">
                 <p className="card-label">WHAT IS ACE?</p>
