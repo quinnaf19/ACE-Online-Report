@@ -124,7 +124,9 @@ function MiniColumns({
         const value = Number(row[valueIndex]);
         return (
           <div className="column-item" key={`${row[0]}-${valueIndex}`}>
-            <span className="column-value">{percent ? `${value.toFixed(0)}%` : value.toLocaleString()}</span>
+            <span className="column-value" title={value.toLocaleString()}>
+              {percent ? `${value.toFixed(0)}%` : Math.round(value).toLocaleString()}
+            </span>
             <span className="column-track">
               <span className="column-fill" style={{ height: `${Math.max(4, (value / max) * 100)}%` }} />
             </span>

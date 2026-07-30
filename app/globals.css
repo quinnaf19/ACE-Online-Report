@@ -280,7 +280,7 @@ figcaption strong, .chart-card h3 { display: block; margin: 0; font-size: 1em; }
 figcaption span, .chart-card > p { display: block; margin: .2em 0 .8em; color: #555; font-size: .8em; }
 .column-chart { display: flex; align-items: end; gap: .35em; height: 260px; padding: 1em .5em 0; border-left: 2px solid #ddd; border-bottom: 2px solid #ddd; }
 .column-item { display: grid; flex: 1; grid-template-rows: 22px 1fr 42px; min-width: 0; height: 100%; text-align: center; }
-.column-value { color: #666; font-size: .5em; }
+.column-value { color: #666; font-size: .5em; white-space: nowrap; }
 .column-track { display: flex; align-items: end; justify-content: center; }
 .column-fill { display: block; width: 78%; min-height: 3px; background: linear-gradient(180deg, var(--dark-red), var(--red)); }
 .column-item small { padding-top: .5em; color: #666; font-size: .5em; writing-mode: vertical-rl; transform: rotate(180deg); }
