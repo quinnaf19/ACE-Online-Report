@@ -293,7 +293,7 @@ export default function Home() {
             <div className="stat-grid">
               <article><strong>1,566,130</strong><span>recorded ACE events</span></article>
               <article><strong>51.1%</strong><span>did not result in an issued violation</span></article>
-              <article><strong>−7.29</strong><span>ACE records per active-route-day each month</span></article>
+              <article><strong>7.29 fewer</strong><span>ACE records per active-route-day each month</span></article>
               <article><strong>68.3%</strong><span>of ACE records came from three routes</span></article>
             </div>
             <ol className="finding-list">
