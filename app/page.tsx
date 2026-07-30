@@ -383,22 +383,6 @@ export default function Home() {
             <blockquote><strong>Key finding</strong>The 125th Street cluster is a leading hotspot and strong candidate for further coordinated review.</blockquote>
           </Finding>
 
-          <section id="limits" className="report-section confounders">
-            <SectionHead label="CONFOUNDING FACTORS" title="What else may shape the patterns" />
-            <div className="factor-grid">
-              {[
-                ["Staggered implementation", "Later routes had fewer months to produce records."],
-                ["Bus frequency", "More trips create more opportunities to observe an obstruction."],
-                ["Route length & overlap", "Long and overlapping routes cover more street space."],
-                ["Outcome maturation", "Recent records may not yet show final issued outcomes."],
-                ["Traffic & construction", "Street work, weather, events, and seasonal travel affect demand."],
-                ["Congestion Relief Zone", "Tolling began during the study period and may have changed traffic volumes and obstruction patterns south of 60th Street."],
-                ["Land use & curb function", "Schools, hospitals, retail, and residences use curbs differently."],
-                ["Standardization", "Canonical labels can combine points that appear separately on the map."],
-              ].map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}
-            </div>
-          </section>
-
           <section id="recommendations" className="report-section recommendations">
             <SectionHead label="RECOMMENDATIONS" title="Use expansion to target the places where enforcement and street design can do the most" />
             <div className="recommendation-list">
@@ -425,6 +409,22 @@ export default function Home() {
               {" "}<a href="https://www.nyc.gov/mayors-office/news/2026/05/mamdani-administration-begins-work-on-lexington-avenue-bus-lane-">Lexington Avenue</a>, and
               {" "}<a href="https://www.nyc.gov/html/dot/html/pr2024/major-redesign-of-96th-st-manhattan.shtml">96th Street</a>.
             </p>
+          </section>
+
+          <section id="limits" className="report-section confounders">
+            <SectionHead label="CONFOUNDING FACTORS" title="What else may shape the patterns" />
+            <div className="factor-grid">
+              {[
+                ["Staggered implementation", "Later routes had fewer months to produce records."],
+                ["Bus frequency", "More trips create more opportunities to observe an obstruction."],
+                ["Route length & overlap", "Long and overlapping routes cover more street space."],
+                ["Outcome maturation", "Recent records may not yet show final issued outcomes."],
+                ["Traffic & construction", "Street work, weather, events, and seasonal travel affect demand."],
+                ["Congestion Relief Zone", "Tolling began during the study period and may have changed traffic volumes and obstruction patterns south of 60th Street."],
+                ["Land use & curb function", "Schools, hospitals, retail, and residences use curbs differently."],
+                ["Standardization", "Canonical labels can combine points that appear separately on the map."],
+              ].map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}
+            </div>
           </section>
 
           <section id="methodology" className="report-section methodology">
@@ -505,8 +505,8 @@ function Nav() {
       <a href="#routes">3 · Route concentration</a>
       <a href="#geography">4 · Neighborhoods</a>
       <a href="#hotspots">5 · Hotspots</a>
-      <a href="#limits">Confounding Factors</a>
       <a href="#recommendations">Recommendations</a>
+      <a href="#limits">Confounding Factors</a>
       <a href="#methodology">Data & Methodology</a>
       <a href="#downloads">Downloads</a>
     </nav>

@@ -49,3 +49,9 @@ test("recommendations prioritize named routes and use the consolidated structure
   assert.doesNotMatch(page, /six and twelve months after launch|establish a baseline for records/);
   assert.doesNotMatch(page, /Treat hotspot corridors as systems|Publish meaningful exposure measures|Evaluate every new rollout/);
 });
+
+test("recommendations appear before confounding factors in the report and navigation", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  assert.ok(page.indexOf('<section id="recommendations"') < page.indexOf('<section id="limits"'));
+  assert.ok(page.indexOf('<a href="#recommendations"') < page.indexOf('<a href="#limits"'));
+});
