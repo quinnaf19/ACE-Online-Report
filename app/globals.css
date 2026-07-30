@@ -103,7 +103,7 @@ h1, h2, h3, h4 { font-family: "Book Antiqua", "Palatino Linotype", Palatino, ser
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.contents nav span ~ a:nth-of-type(n+5):nth-of-type(-n+9) {
+.contents nav a.analysis-link {
   padding-left: 2em;
   color: rgba(255,255,255,.5);
 }

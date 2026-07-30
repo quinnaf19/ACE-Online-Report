@@ -584,12 +584,12 @@ function Nav() {
       <a href="#map">Explore the Map</a>
       <a href="#findings">Main Findings</a>
       <span>The Analysis</span>
-      <a href="#trend">1 · Overall trend</a>
-      <a href="#nonissued">2 · Non-issued share</a>
-      <a href="#routes">3 · Route concentration</a>
-      <a href="#geography">4 · Neighborhoods</a>
-      <a href="#hotspots">5 · Hotspots</a>
-      <a href="#speeds">6 · Bus speeds</a>
+      <a className="analysis-link" href="#trend">1 · Overall trend</a>
+      <a className="analysis-link" href="#nonissued">2 · Non-issued share</a>
+      <a className="analysis-link" href="#routes">3 · Route concentration</a>
+      <a className="analysis-link" href="#geography">4 · Neighborhoods</a>
+      <a className="analysis-link" href="#hotspots">5 · Hotspots</a>
+      <a className="analysis-link" href="#speeds">6 · Bus speeds</a>
       <a href="#recommendations">Recommendations</a>
       <a href="#limits">Confounding Factors</a>
       <a href="#methodology">Data & Methodology</a>

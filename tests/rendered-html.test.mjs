@@ -85,6 +85,6 @@ test("bus speed finding is documented, sourced, and kept separate from the map",
   assert.match(page, /MTA Bus Route Segment Speeds/);
   assert.match(page, /reports\.jehiah\.cz\/bus_speeds/);
   assert.match(page, /descriptive cross-sectional comparison, not a before-and-after evaluation/);
-  assert.match(page, /<a href="#speeds">6 · Bus speeds<\/a>/);
+  assert.match(page, /<a className="analysis-link" href="#speeds">6 · Bus speeds<\/a>/);
   assert.doesNotMatch(page, /ace-map\.quinnaf19\.workers\.dev\/.*speed/);
 });
