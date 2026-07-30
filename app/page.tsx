@@ -98,7 +98,7 @@ const recommendations: Recommendation[] = [
   {
     number: "03",
     title: "Explain why recorded events do not become violations",
-    text: "Publish regular, easy-to-read reports separating exemptions, technical problems, missing vehicle information, pending reviews, and issued violations. This would help the public understand whether changes reflect driver behavior, permitted activity, camera problems, or processing delays.",
+    text: "The MTA should publish regular reports separating ACE exemptions, technical problems, missing vehicle information, pending reviews, and issued violations to help the public understand enforcement trends.",
   },
 ];
 
