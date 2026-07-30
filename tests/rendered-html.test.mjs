@@ -55,3 +55,24 @@ test("recommendations appear before confounding factors in the report and naviga
   assert.ok(page.indexOf('<section id="recommendations"') < page.indexOf('<section id="limits"'));
   assert.ok(page.indexOf('<a href="#recommendations"') < page.indexOf('<a href="#limits"'));
 });
+
+test("methodology documents the reproducible workflow and exact exclusions", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  for (const text of [
+    "Data sources and fields",
+    "Record cleaning and exclusions",
+    "Geographic assignment",
+    "Stops, corridors, and hotspot aggregation",
+    "Route exposure and time window",
+    "Statistical methods",
+    "Software and reproducibility",
+    "29,334 records",
+    "26 records",
+    "607 records",
+    "1,566,130 records",
+    "point-in-polygon algorithm",
+    "Mann–Kendall trend test",
+    "Sen slope",
+    "pandas and NumPy",
+  ]) assert.match(page, new RegExp(text.replace(/[–]/g, "–")));
+});

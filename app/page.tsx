@@ -430,28 +430,67 @@ export default function Home() {
           <section id="methodology" className="report-section methodology">
             <SectionHead label="DATA & METHODOLOGY" title="How the analysis was produced" />
             <details open>
-              <summary>Data preparation and geographic assignment</summary>
-              <p>The source extract covered June 20, 2024 through June 15, 2026. Of 1,596,097 reviewed rows, 29,967 were outside Manhattan, unmatched geographically, or otherwise excluded under the study rules. The final dataset contains 1,566,130 records. No duplicate violation IDs were removed.</p>
-              <p>Exact longitude and latitude were tested against NYC Department of City Planning 2020 Census Tracts. NTA names were taken from the containing tract. NTAs are statistical approximations of neighborhoods.</p>
+              <summary>Data sources and fields</summary>
+              <p>The primary source was the MTA Bus Automated Camera Enforcement Violations dataset downloaded from New York State Open Data. The extract contained 1,596,097 records dated from June 20, 2024 through June 15, 2026. Each row represents an event recorded by an ACE camera—not necessarily a confirmed violation.</p>
+              <p>The analysis used six source fields: violation ID, first occurrence date and time, final status, bus route, reported stop name, and geographic point. A separate MTA file supplied the ACE implementation date for each route. NYC Department of City Planning 2020 Census Tract geometry supplied the borough and Neighborhood Tabulation Area associated with each coordinate.</p>
+            </details>
+            <details>
+              <summary>Record cleaning and exclusions</summary>
+              <p>Violation IDs were checked for exact duplicates, repeated IDs, and conflicting records. None were found, so no records were removed as duplicates. Dates were parsed into a common timestamp, geographic points were separated into longitude and latitude, route labels were standardized, and status values were checked against the recognized outcome categories.</p>
+              <p>We excluded 29,334 records whose coordinates fell outside Manhattan or could not be matched to the official tract geometry, 26 records with missing or unrecognized statuses, and 607 records dated before the implementation date supplied for their route. These exclusions total 29,967 records, leaving 1,566,130 records in the final Manhattan dataset.</p>
+              <p>Select Bus Service route variants were combined where they represent the same public-facing service. For example, M14A-SBS and M14D-SBS records were grouped as M14-SBS, and M34-SBS and M34A-SBS were grouped as M34-SBS.</p>
+            </details>
+            <details>
+              <summary>Geographic assignment</summary>
+              <p>Each unique, valid longitude and latitude pair was tested against official 2020 Census Tract polygon boundaries using a point-in-polygon algorithm. A bounding-box check first narrowed the possible polygons; a ray-casting test then determined whether the point fell inside a tract. Only points assigned to the borough of Manhattan were retained.</p>
+              <p>Each retained record inherited the 2020 NTA name associated with its containing tract. NTAs are statistical approximations of neighborhoods rather than administrative boundaries, so neighborhood findings should be interpreted as geographic summaries, not measurements of official neighborhood jurisdictions.</p>
             </details>
             <details>
               <summary>Primary record measure and enforcement outcomes</summary>
-              <p>The primary findings count every retained ACE record, regardless of its final enforcement outcome. These records identify events captured by bus-mounted cameras, but they should not all be interpreted as confirmed violations or as a complete count of curb obstruction.</p>
-              <p>Outcome analysis is presented separately. “Issued” means a violation was confirmed and issued. “Non-issued” combines exemptions, technical rejections, and records that could not be issued because driver or vehicle information was missing.</p>
+              <p>The report’s primary findings count every retained ACE record, regardless of its final enforcement outcome. This measure describes where and when bus cameras recorded potential obstruction. It should not be interpreted as a count of confirmed violations or as a complete count of every obstruction that occurred.</p>
+              <p>Enforcement outcomes were analyzed separately. Records marked “Violation Issued” were classified as issued. The report combines the following categories as non-issued:</p>
+              <ul>
+                <li><strong>Exemptions:</strong> emergency vehicles, qualifying commercial activity under 20 minutes, buses or paratransit vehicles, and other recognized exemptions.</li>
+                <li><strong>Technical rejection:</strong> the available images or other technical information did not allow the event to be confirmed.</li>
+                <li><strong>Driver or vehicle information missing:</strong> a violation could not be issued because identifying or registration information was unavailable or could not be matched.</li>
+              </ul>
+              <p>Non-issued therefore describes a shared outcome—no violation was issued—not a single underlying cause.</p>
             </details>
             <details>
               <summary>Stops, corridors, and hotspot aggregation</summary>
-              <p>Stop names were converted to uppercase; punctuation and common suffixes were normalized; and reversed intersection order was standardized. In the workbook, a hotspot is a canonical intersection that combines records sharing the same standardized intersection name across routes and source-coordinate variants.</p>
-              <p>The embedded map combines matching records into one canonical intersection marker by default. Route and neighborhood filters recalculate the total using only records in the selected subset.</p>
+              <p>Stop names were converted to uppercase, punctuation was removed, extra spaces were collapsed, and common street suffixes were standardized—for example, “Avenue” became “AV” and “Boulevard” became “BLVD.” Where a stop name contained an intersection, the two street components were placed in a consistent order so reversed versions of the same intersection would match.</p>
+              <p>A canonical hotspot combines all records sharing the resulting standardized intersection name across routes and source-coordinate variants. Its map coordinate is the median longitude and latitude of those records, reducing the influence of individual coordinate outliers. Corridor labels use the first street component of the standardized original stop name; ambiguous or non-intersection labels remain literal.</p>
+              <p>Summary tables were calculated by month, route, NTA, corridor, and canonical intersection. The map data was first aggregated by route, canonical stop, and NTA so filters could be applied. After filtering, matching rows are recombined into one canonical intersection marker. The outcome filter changes the displayed measure without changing the underlying location definition.</p>
             </details>
             <details>
-              <summary>Route exposure and statistical methods</summary>
-              <p>Monthly active-route-days were calculated from implementation dates. Primary ACE-record trend tests use complete months from July 2024 through May 2026; June 2024 and June 2026 are excluded because they are partial months. Mann–Kendall tests assessed consistent direction, and Sen slopes estimated median monthly change.</p>
-              <p>Outcome trend tests end in March 2026 because the sharp drop in issued outcomes after that point indicates that recent records may not have completed review. A weighted regression separately tested the combined non-issued share.</p>
+              <summary>Route exposure and time window</summary>
+              <p>ACE expanded from four active Manhattan routes at the beginning of the study period to 17 by May 2026. Raw monthly totals are therefore not directly comparable: later months generally contain more routes and more opportunities for cameras to record an event.</p>
+              <p>To account for this changing coverage, we calculated active-route-days. One route active for one calendar day contributes one active-route-day. For each month, the denominator is the sum of all days during which each route had been implemented. Monthly ACE records were divided by that denominator to produce records per active-route-day.</p>
+              <p>The primary record trend covers 23 complete months from July 2024 through May 2026. June 2024 and June 2026 were excluded because each contains only part of a month. Outcome trends end in March 2026 because issued violations fall sharply afterward while non-issued records continue, indicating that recent records may not have completed review.</p>
+            </details>
+            <details>
+              <summary>Statistical methods</summary>
+              <p><strong>Mann–Kendall trend test:</strong> This non-parametric test assessed whether monthly values generally moved upward or downward over time. It compares the ordering of month-to-month observations and does not require the data to follow a normal distribution.</p>
+              <p><strong>Sen slope:</strong> For every pair of months, the analysis calculated the change in the measure divided by the number of months between them. The median of those pairwise slopes estimates the typical monthly change. This produced the finding of 7.29 fewer ACE records per active-route-day each month.</p>
+              <p><strong>Outcome trend:</strong> The same Mann–Kendall and Sen-slope approach tested the monthly non-issued share through March 2026. A record-weighted linear regression was also calculated as a supporting check, giving greater weight to months containing more records.</p>
+              <p>These tests identify consistent patterns in the observed data. They do not prove that ACE caused the changes. Statistical results and the complete analysis code are available in the Downloads section.</p>
+            </details>
+            <details>
+              <summary>Software and reproducibility</summary>
+              <p>Data cleaning, geographic assignment, aggregation, and statistical analysis were completed in Python using pandas and NumPy, together with Python’s standard library. The point-in-polygon procedure and Mann–Kendall and Sen-slope calculations are written directly in the downloadable analysis script.</p>
+              <p>The online report was built with React and Next.js-compatible tooling. The interactive map uses Leaflet. Its compact data file contains aggregated counts for all records, issued violations, exemptions, technical rejections, missing driver or vehicle information, and the combined non-issued category.</p>
             </details>
             <details>
               <summary>Known limitations</summary>
-              <p>The dataset measures events recorded by ACE cameras, not every instance of curb obstruction. Exemptions may capture permitted activity, and technical rejections may not be confirmable. The data lacks bus-trip and camera-uptime denominators. Recent outcomes may be incomplete. Route totals reflect age, length, frequency, and overlap. The design is descriptive and does not establish causality.</p>
+              <ul>
+                <li><strong>Recorded events are not all confirmed violations:</strong> exemptions may capture permitted activity, while technical rejections may not be confirmable.</li>
+                <li><strong>Recorded events are not all obstruction:</strong> the dataset includes only events observed by an equipped bus while its camera system was operating.</li>
+                <li><strong>Exposure is approximate:</strong> active-route-days account for implementation timing, but the data does not provide camera-equipped trips, operating hours, camera uptime, route miles, or comparable service-frequency denominators.</li>
+                <li><strong>Route totals are not standardized risk:</strong> older, longer, more frequent, and overlapping routes have more opportunities to generate records.</li>
+                <li><strong>Recent outcomes may be incomplete:</strong> the final months may contain records that had not reached a final outcome when the data was extracted.</li>
+                <li><strong>Canonical labels simplify geography:</strong> records with the same standardized intersection name are combined even when source coordinates vary.</li>
+                <li><strong>The analysis is descriptive:</strong> traffic, construction, weather, land use, enforcement practices, and other concurrent changes prevent causal conclusions about ACE’s effect.</li>
+              </ul>
             </details>
             <div className="sources">
               <h3>Primary sources</h3>

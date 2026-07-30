@@ -93,7 +93,7 @@ test("primary record trend runs through May 2026 and outcomes remain separate", 
   );
   assert.match(page, /7\.29 fewer ACE records per active-route-day each month/);
   assert.match(page, /July 2024–May 2026/);
-  assert.match(page, /Outcome trend tests end in March 2026/);
+  assert.match(page, /Outcome trends end in March 2026/);
 });
 
 test("publication language contains no stale draft or source labels", async () => {

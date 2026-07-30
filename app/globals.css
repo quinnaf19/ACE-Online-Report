@@ -344,6 +344,8 @@ td:nth-child(n+2), th:nth-child(n+2) { text-align: right; }
 .methodology details { margin: .5em 0; padding: 1em 1.3em; border-radius: 6px; background: #f5f7f9; }
 .methodology summary { cursor: pointer; font-weight: bold; }
 .methodology details p { margin-top: .8em; }
+.methodology details ul { margin: .8em 0 .2em; padding-left: 1.3em; }
+.methodology details li { margin: .55em 0; line-height: 1.55; }
 .sources { margin-top: 1.4em; padding: 1.2em 1.4em; border-radius: 7px; background: #f5f7f9; }
 .sources h3 { margin: 0 0 .5em; font-size: 1em; }
 .sources a { display: block; }
