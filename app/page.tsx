@@ -72,14 +72,37 @@ const stops = [
   ["Second Ave / E 78 St", 18143, "42.2%"],
 ] as const;
 
-const recommendations = [
-  ["01", "Expand ACE strategically, not evenly", "Prioritize routes where obstruction is most likely to delay many riders or prevent accessible boarding, using ridership, speed, service frequency, safety, and existing camera coverage."],
-  ["02", "Treat hotspot corridors as systems", "Review loading, passenger pickup, commercial delivery, curb regulations, lane design, and enforcement together where multiple routes converge."],
-  ["03", "Pair enforcement with curb management", "At persistent hotspots, combine cameras with loading zones, clearer bus-stop markings, delivery strategies, street treatments, and targeted outreach."],
-  ["04", "Audit the rise in non-issued outcomes", "Publish regular reports distinguishing exemptions, technical rejections, missing vehicle information, warnings, pending records, and final violations."],
-  ["05", "Publish meaningful exposure measures", "Release camera-equipped bus trips, operating hours, route miles, scheduled service, warning-period status, and typical processing time."],
-  ["06", "Evaluate every new rollout", "Preserve a baseline, identify a comparison corridor, and report bus speed, reliability, safety, obstruction, and curb activity after activation."],
-] as const;
+type Recommendation = {
+  number: string;
+  title: string;
+  text: string;
+  bullets?: [string, string][];
+  followup?: string;
+};
+
+const recommendations: Recommendation[] = [
+  {
+    number: "01",
+    title: "Expand ACE first where it can help the most riders",
+    text: "The next phase should fill important gaps beside routes already using ACE and focus on corridors where slow service, blocked lanes, and inaccessible stops affect many riders.",
+    bullets: [
+      ["M1, M3, and M5", "Add coverage on the Fifth, Madison, and Sixth Avenue corridors. These routes would complement the M2, M4, and M7, while extending camera coverage to additional buses using some of Midtown’s slowest and busiest bus lanes."],
+      ["M102 and M103", "Expand coverage on Third and Lexington Avenues alongside the M101. NYC DOT has reported daytime bus speeds of about 5 mph on Lexington Avenue, where deliveries and passenger pickups frequently block the bus lane."],
+      ["M106", "Pair the M106 with the ACE-equipped M96 on the 96th Street corridor. Together, the routes serve hospitals, schools, seven subway lines, and thousands of daily crosstown riders."],
+    ],
+    followup: "Before cameras are activated, the MTA and City should establish a baseline for records, bus speeds, reliability, accessibility, and enforcement outcomes. Results should be reported six and twelve months after launch and compared with a similar route that has not yet received ACE. Final route selection should also consider current ridership, service frequency, and the number of camera-equipped trips.",
+  },
+  {
+    number: "02",
+    title: "Make loading zones and bus stops easier to recognize",
+    text: "At persistent hotspots, add or resize loading zones, repaint bus-stop boundaries, and install clearer signs. Making legal loading space and bus-stop limits obvious can reduce conflicts before enforcement is needed.",
+  },
+  {
+    number: "03",
+    title: "Explain why recorded events do not become violations",
+    text: "Publish regular, easy-to-read reports separating exemptions, technical problems, missing vehicle information, pending reviews, and issued violations. This would help the public understand whether changes reflect driver behavior, permitted activity, camera problems, or processing delays.",
+  },
+];
 
 function BarChart({
   rows,
@@ -381,8 +404,30 @@ export default function Home() {
           <section id="recommendations" className="report-section recommendations">
             <SectionHead label="RECOMMENDATIONS" title="Use expansion to target the places where enforcement and street design can do the most" />
             <div className="recommendation-list">
-              {recommendations.map((rec) => <article key={rec[0]}><span>{rec[0]}</span><div><h3>{rec[1]}</h3><p>{rec[2]}</p></div></article>)}
+              {recommendations.map((rec) => (
+                <article key={rec.number}>
+                  <span>{rec.number}</span>
+                  <div>
+                    <h3>{rec.title}</h3>
+                    <p>{rec.text}</p>
+                    {rec.bullets && (
+                      <ul>
+                        {rec.bullets.map(([routes, reason]) => (
+                          <li key={routes}><strong>{routes}:</strong> {reason}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {rec.followup && <p className="recommendation-followup">{rec.followup}</p>}
+                  </div>
+                </article>
+              ))}
             </div>
+            <p className="recommendation-sources">
+              Route priorities also draw on NYC DOT’s published findings for
+              {" "}<a href="https://www.nyc.gov/html/dot/html/pr2026/fast-buses-mamdani-moves-forward-madison-ave-bus-lane.shtml">Madison Avenue</a>,
+              {" "}<a href="https://www.nyc.gov/mayors-office/news/2026/05/mamdani-administration-begins-work-on-lexington-avenue-bus-lane-">Lexington Avenue</a>, and
+              {" "}<a href="https://www.nyc.gov/html/dot/html/pr2024/major-redesign-of-96th-st-manhattan.shtml">96th Street</a>.
+            </p>
           </section>
 
           <section id="methodology" className="report-section methodology">

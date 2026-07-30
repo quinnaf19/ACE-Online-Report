@@ -39,3 +39,13 @@ test("finding one presents only the expansion-adjusted trend chart", async () =>
   assert.match(page, /Recorded events declined relative to the number of active routes and days/);
   assert.doesNotMatch(page, /Total ACE records moved unevenly|Monthly ACE records · July 2024–May 2026/);
 });
+
+test("recommendations prioritize named routes and use the consolidated structure", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  assert.match(page, /M1, M3, and M5/);
+  assert.match(page, /M102 and M103/);
+  assert.match(page, /M106/);
+  assert.match(page, /six and twelve months after launch/);
+  assert.match(page, /Make loading zones and bus stops easier to recognize/);
+  assert.doesNotMatch(page, /Treat hotspot corridors as systems|Publish meaningful exposure measures|Evaluate every new rollout/);
+});
