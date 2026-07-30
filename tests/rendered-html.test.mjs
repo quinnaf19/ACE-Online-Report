@@ -45,7 +45,7 @@ test("recommendations prioritize named routes and use the consolidated structure
   assert.match(page, /M1, M3, and M5/);
   assert.match(page, /M102 and M103/);
   assert.match(page, /M106/);
-  assert.match(page, /six and twelve months after launch/);
   assert.match(page, /Make loading zones and bus stops easier to recognize/);
+  assert.doesNotMatch(page, /six and twelve months after launch|establish a baseline for records/);
   assert.doesNotMatch(page, /Treat hotspot corridors as systems|Publish meaningful exposure measures|Evaluate every new rollout/);
 });

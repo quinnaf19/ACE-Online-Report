@@ -77,7 +77,6 @@ type Recommendation = {
   title: string;
   text: string;
   bullets?: [string, string][];
-  followup?: string;
 };
 
 const recommendations: Recommendation[] = [
@@ -90,7 +89,6 @@ const recommendations: Recommendation[] = [
       ["M102 and M103", "Expand coverage on Third and Lexington Avenues alongside the M101. NYC DOT has reported daytime bus speeds of about 5 mph on Lexington Avenue, where deliveries and passenger pickups frequently block the bus lane."],
       ["M106", "Pair the M106 with the ACE-equipped M96 on the 96th Street corridor. Together, the routes serve hospitals, schools, seven subway lines, and thousands of daily crosstown riders."],
     ],
-    followup: "Before cameras are activated, the MTA and City should establish a baseline for records, bus speeds, reliability, accessibility, and enforcement outcomes. Results should be reported six and twelve months after launch and compared with a similar route that has not yet received ACE. Final route selection should also consider current ridership, service frequency, and the number of camera-equipped trips.",
   },
   {
     number: "02",
@@ -417,7 +415,6 @@ export default function Home() {
                         ))}
                       </ul>
                     )}
-                    {rec.followup && <p className="recommendation-followup">{rec.followup}</p>}
                   </div>
                 </article>
               ))}

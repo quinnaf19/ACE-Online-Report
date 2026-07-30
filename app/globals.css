@@ -339,7 +339,6 @@ td:nth-child(n+2), th:nth-child(n+2) { text-align: right; }
 .recommendation-list p { margin: 0; font-size: .9em; }
 .recommendation-list ul { margin: 1em 0; padding-left: 1.2em; }
 .recommendation-list li { margin: .65em 0; font-size: .86em; line-height: 1.5; }
-.recommendation-followup { margin-top: 1em !important; padding: 1em; border-left: 4px solid var(--gold); background: #f7f7f4; }
 .recommendation-sources { margin: 1.2em 0 0; color: var(--muted); font-size: .72em; }
 .recommendation-sources a { font-weight: bold; }
 .methodology details { margin: .5em 0; padding: 1em 1.3em; border-radius: 6px; background: #f5f7f9; }
